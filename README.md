@@ -1,3 +1,1 @@
-# RealiseRN
-
-RN client for realise
+master => o.samoilenko
