@@ -1,8 +1,4 @@
 module.exports = {
-  root: true,
-  extends: '@react-native-community',
-};
-module.exports = {
   env: {
     // 指定脚本的运行环境。每种环境都有一组特定的预定义全局变量
     es6: true,
@@ -61,7 +57,7 @@ module.exports = {
   },
   rules: {
     // 启用的规则及其各自的错误级别
-    "interface-over-type-literal": "error",
+    // "interface-over-type-literal": "error",
     "@typescript-eslint/indent": ["error", 2],
     'global-require': 0,
     'linebreak-style': [2, 'unix'],
@@ -108,6 +104,7 @@ module.exports = {
         extensions: ['.jsx', '.tsx', '.js'],
       },
     ],
+    "import/no-unresolved": 0,
     'jsx-a11y/accessible-emoji': 0,
     'react/static-property-placement': 0,
     'react-native/no-color-literals': 0,
@@ -116,6 +113,17 @@ module.exports = {
     'react-native/split-platform-components': 0,
     '@typescript-eslint/explicit-member-accessibility': [2, { accessibility: 'no-public' }],
     '@typescript-eslint/no-empty-interface': 1,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "json": "never",
+      }
+    ],
     '@typescript-eslint/explicit-function-return-type': [
       0,
       {
@@ -136,15 +144,5 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/camelcase': 0,
     '@typescript-eslint/ban-ts-ignore': 0,
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ]
   },
 };

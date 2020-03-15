@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+  blacklist: /assets\/node_modules\/.*/,
   transformer: {
     getTransformOptions: async () => ({
       transform: {

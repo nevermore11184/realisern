@@ -7,7 +7,7 @@ import SignUpPage from '../pages/SignUp';
 
 import { setHeaderOptions } from './utils';
 
-export interface RootStackParamsList {
+export type RootStackParamsList = {
   Login: undefined;
   SignUp: undefined;
 }

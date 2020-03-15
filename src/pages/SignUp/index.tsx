@@ -1,6 +1,6 @@
 import React from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import { RootStackParamsList } from '../../navigation/RootNavigation';
 
 type NavigationScreenProp = StackNavigationProp<RootStackParamsList, 'SignUp'>;
