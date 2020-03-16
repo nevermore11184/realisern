@@ -14,7 +14,6 @@ const FacebookIntegration = () => {
     LoginManager.logInWithPermissions([
       'public_profile',
       'email',
-      'user_friends',
     ]).then(
       (result: any) => {
         if (result.isCancelled) {
