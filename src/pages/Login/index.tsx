@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { RootStackParamsList } from '../../navigation/RootNavigation';
 
 import FloatingTextInputField from '../../components/FloatingTextInput';
-import ServicesIntegration from "./ServicesIntegration";
+import ServicesIntegration from './ServicesIntegration';
 
 import { LoginEnums, LoginColors } from './constants';
 
