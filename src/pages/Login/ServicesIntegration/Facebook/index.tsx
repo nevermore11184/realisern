@@ -2,45 +2,40 @@ import React from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LoginManager } from 'react-native-fbsdk';
-import { FaceBookConstants } from './constants';
+import { ServicesIntegrationConstants } from '../constants';
+import { styles } from '../styles';
 
 
-import { styles } from './styles';
 import { LoginColors } from '../../constants';
-
+import { servicesButtonBackground } from '../../utils';
 
 const FacebookIntegration = () => {
-  const handleFacebookLogin = () => {
-    LoginManager.logInWithPermissions([
-      'public_profile',
-      'email',
-    ]).then(
-      (result: any) => {
-        if (result.isCancelled) {
-          console.log('Login cancelled');
-        } else {
-          console.log(
-            `Login success with permissions: ${
-              result.grantedPermissions.toString()}`,
-          );
-        }
-      },
-      (error: any) => {
-        console.log(`Login fail with error: ${error}`);
-      },
-    );
+  const handleFacebookLogin = (): void => {
+    LoginManager.logInWithPermissions(['public_profile', 'email']).then((result) => {
+      console.log(result, 'result');
+    },
+    (error) => {
+      console.log(`login fail with error: ${error}`);
+    });
   };
 
   Icon.loadFont();
 
   return (
     <TouchableHighlight
-      style={styles.facebookButton}
       onPress={handleFacebookLogin}
+      style={{
+        ...styles.buttonContainer,
+        backgroundColor: servicesButtonBackground(LoginColors, 'facebookButton'),
+      }}
     >
-      <View style={styles.buttonContentWrapper}>
-        <Icon style={styles.facebookIcon} size={30} color={LoginColors.white} name="facebook" />
-        <Text style={styles.facebookTitle}>{FaceBookConstants.buttonContent}</Text>
+      <View style={styles.buttonWrapper}>
+        <Icon style={styles.buttonIcon} size={23} color={LoginColors.white} name="facebook" />
+        <View style={styles.buttonContent}>
+          <Text style={styles.buttonInnerContent}>
+            {ServicesIntegrationConstants.buttonContentFacebook}
+          </Text>
+        </View>
       </View>
     </TouchableHighlight>
   );

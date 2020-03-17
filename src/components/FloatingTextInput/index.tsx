@@ -17,6 +17,7 @@ interface FloatingTextInput {
   otherTextInputProps?: any;
   animatedLabelStyles: (arg: boolean) => any;
   dynamicInputStyles: (arg: boolean) => any;
+  secureTextEntry?: boolean;
 }
 
 const FloatingTextInputField = (props: FloatingTextInput) => {
@@ -31,6 +32,7 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
     otherTextInputProps,
     animatedLabelStyles,
     dynamicInputStyles,
+    secureTextEntry,
   } = props;
   const [position] = useState(new Animated.Value(value ? 1 : 0));
   const [isFieldActive, setFieldActive] = useState(false);
@@ -87,6 +89,7 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
       )}
       <TextInput
         value={value}
+        secureTextEntry={secureTextEntry}
         style={{ ...inputStyles, ...dynamicInputStyles(isFieldActive) }}
         underlineColorAndroid="transparent"
         onFocus={handleFocus}

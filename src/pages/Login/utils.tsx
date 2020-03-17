@@ -12,3 +12,8 @@ export const animatedLabelStyles = (isFieldActive: boolean): any => ({ // return
 export const dynamicInputStyles = (isFieldActive: boolean): any => ({ // returns styles
   backgroundColor: isFieldActive ? LoginColors.white : LoginColors.basicTransparentWhite,
 });
+
+// services integration
+
+// eslint-disable-next-line max-len
+export const servicesButtonBackground = <T extends {}, P extends keyof T>(obj: T, type: P): T[P] => obj[type];

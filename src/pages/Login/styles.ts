@@ -2,11 +2,14 @@ import { StyleSheet } from 'react-native';
 import { LoginColors } from './constants';
 
 export const styles = StyleSheet.create({
-  checkboxCustom: {
-    margin: 0,
-    marginLeft: 1,
-    padding: 0,
-    marginTop: 1,
+  checkBox: {
+    backgroundColor: LoginColors.basicTransparentWhite,
+    borderRadius: 4,
+    height: 15,
+    marginRight: 11,
+    paddingLeft: 1,
+    paddingTop: 1,
+    width: 15,
   },
   container: {
     alignItems: 'center',
@@ -27,7 +30,7 @@ export const styles = StyleSheet.create({
   dividerBorder: {
     borderBottomColor: LoginColors.white,
     borderBottomWidth: 1,
-    width: '35%',
+    width: '40%',
   },
   dividerContent: {
     color: LoginColors.white,

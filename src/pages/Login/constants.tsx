@@ -1,6 +1,7 @@
-export enum LoginEnums {
+export enum LoginConstants {
   forgotPassword = 'Forgotten password?',
-  rememberMe = 'Remember me?'
+  rememberMe = 'Remember me?',
+  or = 'OR',
 }
 
 export enum LoginColors {
@@ -14,6 +15,8 @@ export enum LoginColors {
   closeCircle = '#EE6575',
   checkIcon = '#83DE95',
   facebookButton = '#507CC0',
+  twitterButton = '#64CCF1',
+  googleButton = '#DF4930',
 }
 
 // eslint-disable-next-line
