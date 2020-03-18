@@ -12,7 +12,7 @@ interface FloatingTextInput {
   title: string;
   inputStyles: any;
   onChangeText: (arg: string) => void;
-  attrName: string;
+  name: string;
   keyboardType?: () => void;
   otherTextInputProps?: any;
   animatedLabelStyles: (arg: boolean) => any;
@@ -57,7 +57,7 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
   };
 
 
-  const returnAnimatedTitleStyles = (): any => ({ // returns styles
+  const returnAnimatedTitleStyles = () => ({ // returns styles
     top: position.interpolate({
       inputRange: [0, 1],
       outputRange: [14, 0],

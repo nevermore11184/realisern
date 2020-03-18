@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { RootStackParamsList } from '../../navigation/RootNavigation';
 
 import FloatingTextInputField from '../../components/FloatingTextInput';
-import ServicesIntegration from './ServicesIntegration';
+import Social from './Social';
 
 import { LoginEnums, LoginColors } from './constants';
 
@@ -70,7 +70,7 @@ const LoginPage: React.FC<Props> = (props) => {
         <Image source={require('../../images/Bitmap.png')} />
         <View style={styles.loginBlock}>
           <FloatingTextInputField
-            attrName="email"
+            name="email"
             title="email"
             validationIconIncluded
             value={credentials.email}
@@ -80,7 +80,7 @@ const LoginPage: React.FC<Props> = (props) => {
             dynamicInputStyles={dynamicInputStyles}
           />
           <FloatingTextInputField
-            attrName="password"
+            name="password"
             title="password"
             value={credentials.password}
             inputStyles={styles.textInput}
@@ -94,9 +94,8 @@ const LoginPage: React.FC<Props> = (props) => {
                 checked={rememberMe}
                 center
                 iconRight
-                // activeOpacity={1}
-                wrapperStyle={styles.checkboxCustom}
-                containerStyle={styles.checkboxCustom}
+                wrapperStyle={styles.customCheckBox}
+                containerStyle={styles.customCheckBox}
                 iconType="material"
                 checkedIcon={checkedIcon(14, 'check', 'black')}
                 uncheckedIcon={checkedIcon(0, 'check', 'transparent')}
@@ -123,7 +122,7 @@ const LoginPage: React.FC<Props> = (props) => {
             title="LOGIN"
           />
         </View>
-        <ServicesIntegration />
+        <Social />
       </View>
     </ImageBackground>
   );

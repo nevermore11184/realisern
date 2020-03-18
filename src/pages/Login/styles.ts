@@ -2,17 +2,17 @@ import { StyleSheet } from 'react-native';
 import { LoginColors } from './constants';
 
 export const styles = StyleSheet.create({
-  checkboxCustom: {
-    margin: 0,
-    marginLeft: 1,
-    padding: 0,
-    marginTop: 1,
-  },
   container: {
     alignItems: 'center',
     display: 'flex',
     paddingTop: '10%',
     width: '100%',
+  },
+  customCheckBox: {
+    margin: 0,
+    marginLeft: 1,
+    padding: 0,
+    marginTop: 1,
   },
   divider: {
     display: 'flex',
