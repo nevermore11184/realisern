@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Zocial';
 import {
@@ -12,10 +12,16 @@ import { styles } from '../styles';
 
 
 const GoogleIntegration = () => {
-  const signIn = async () => {
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId: '285670545046-ssdseouih07bbkq7vnipt2o5gidbuh28.apps.googleusercontent.com',
+    });
+  }, []);
+
+  const signIn = async (): Promise<void> => {
     try {
       await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
+      // const userInfo = await GoogleSignin.signIn();
       // this.setState({ userInfo });
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
