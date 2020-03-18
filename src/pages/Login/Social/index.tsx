@@ -8,7 +8,7 @@ import GoogleIntegration from './Google';
 import { styles } from './styles';
 
 
-const ServicesIntegration = () => (
+const Social = () => (
   <View style={styles.servicesIntegrationWrapper}>
     <FacebookIntegration />
     <TwitterIntegration />
@@ -16,4 +16,4 @@ const ServicesIntegration = () => (
   </View>
 );
 
-export default ServicesIntegration;
+export default Social;

@@ -18,6 +18,12 @@ export const styles = StyleSheet.create({
     paddingTop: '10%',
     width: '100%',
   },
+  customCheckBox: {
+    margin: 0,
+    marginLeft: 1,
+    padding: 0,
+    marginTop: 1,
+  },
   divider: {
     display: 'flex',
     flexDirection: 'row',
