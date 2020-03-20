@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
-import { StackNavigationProp } from '@react-navigation/stack';
+import React, {useState} from 'react';
+import {StackNavigationProp} from '@react-navigation/stack';
 import {
-  View, Text, Image, ImageBackground, TouchableOpacity, ScrollView,
+  View,
+  Text,
+  ImageBackground,
+  TouchableOpacity,
+  ScrollView,
 } from 'react-native';
-import { Button } from 'react-native-elements';
+import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { RootStackParamsList } from '../../navigation/RootNavigation';
+import {RootStackParamsList} from '../../navigation/RootNavigation';
+import assets from '../../assets/images';
 
 import FloatingTextInputField from '../../components/FloatingTextInput';
 import Social from './Social';
 
-import { LoginConstants, LoginColors } from './constants';
+import {loginConstants, loginColors} from './constants';
 
-import { dynamicInputStyles, animatedLabelStyles } from './utils';
+import {dynamicInputStyles, animatedLabelStyles} from './utils';
 
-import { styles } from './styles';
+import {styles} from './styles';
+import LogoIcon from '../../assets/icons/LogoIcon';
 
 type NavigationScreenProp = StackNavigationProp<RootStackParamsList, 'Login'>;
 
@@ -31,7 +37,7 @@ export interface CredentialsEventHandler {
   (argument: string): void;
 }
 
-const LoginPage: React.FC<Props> = (props) => {
+const LoginPage: React.FC<Props> = props => {
   const [rememberMe, setRememberMe] = useState(true);
   const [credentials, setCredentials] = useState({
     email: '',
@@ -46,26 +52,27 @@ const LoginPage: React.FC<Props> = (props) => {
     setRememberMe((prevState: boolean) => !prevState);
   };
 
-  const onCredentialsChange = (field: string): CredentialsEventHandler => (event: string) => {
-    setCredentials((prevState: Credentials): Credentials => ({
-      ...prevState,
-      [field]: event,
-    }));
+  const onCredentialsChange = (field: string): CredentialsEventHandler => (
+    event: string,
+  ) => {
+    setCredentials(
+      (prevState: Credentials): Credentials => ({
+        ...prevState,
+        [field]: event,
+      }),
+    );
   };
 
-  const { navigation } = props;
+  const {navigation} = props;
 
   return (
-    <ImageBackground
-      style={styles.wrapper}
-      source={require('../../images/Rectangle.png')}
-    >
+    <ImageBackground style={styles.wrapper} source={assets.background}>
       <ScrollView>
         <View style={styles.container}>
-          <Image source={require('../../images/Bitmap.png')} />
+          {/*<LogoIcon />*/}
           <View style={styles.loginBlock}>
             <FloatingTextInputField
-              attrName="email"
+              name="email"
               title="Email"
               validationIconIncluded
               value={credentials.email}
@@ -75,7 +82,7 @@ const LoginPage: React.FC<Props> = (props) => {
               dynamicInputStyles={dynamicInputStyles}
             />
             <FloatingTextInputField
-              attrName="password"
+              name="password"
               title="Password"
               value={credentials.password}
               inputStyles={styles.textInput}
@@ -85,26 +92,31 @@ const LoginPage: React.FC<Props> = (props) => {
               secureTextEntry
             />
             <View style={styles.extraCTA}>
-              <TouchableOpacity
-                activeOpacity={1}
-                onPress={onHandleCheckBox}
-              >
+              <TouchableOpacity activeOpacity={1} onPress={onHandleCheckBox}>
                 <View style={styles.rowWrapper}>
                   <View style={styles.checkBox}>
-                    {rememberMe && <Icon style={{ fontWeight: 'bold' }} size={13} name="check" />}
+                    {rememberMe && (
+                      <Icon
+                        style={styles.fontWeightBold}
+                        size={13}
+                        name="check"
+                      />
+                    )}
                   </View>
-                  <Text style={{ color: LoginColors.turquoise }}>
-                    {LoginConstants.rememberMe}
+                  <Text style={{color: loginColors.turquoise}}>
+                    {loginConstants.rememberMe}
                   </Text>
                 </View>
               </TouchableOpacity>
-              <Text onPress={onSignUpRedirect} style={{ color: LoginColors.white }}>
-                {LoginConstants.forgotPassword}
+              <Text
+                onPress={onSignUpRedirect}
+                style={styles.forgotPasswordText}>
+                {loginConstants.forgotPassword}
               </Text>
             </View>
             <View style={styles.divider}>
               <View style={styles.dividerBorder} />
-              <Text style={styles.dividerContent}>{LoginConstants.or}</Text>
+              <Text style={styles.dividerContent}>{loginConstants.or}</Text>
               <View style={styles.dividerBorder} />
             </View>
             <Button

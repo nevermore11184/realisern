@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { LoginColors } from '../../pages/Login/constants';
+import {StyleSheet} from 'react-native';
+import {loginColors} from '../../pages/Login/constants';
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     marginTop: 5,
   },
   titleStyles: {
-    color: LoginColors.white,
+    color: loginColors.white,
     left: 16,
     position: 'absolute',
     top: 10,

@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { LoginColors } from '../constants';
+import {StyleSheet} from 'react-native';
+import {loginColors} from '../constants';
 
 export const styles = StyleSheet.create({
   buttonContainer: {
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     width: '28%',
   },
   buttonInnerContent: {
-    color: LoginColors.white,
+    color: loginColors.white,
     fontSize: 16,
     fontWeight: '300',
   },

@@ -1,54 +1,45 @@
-import React, { useEffect } from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import React, {useEffect} from 'react';
+import {Text, TouchableHighlight, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Zocial';
-import {
-  GoogleSignin,
-  statusCodes,
-} from '@react-native-community/google-signin';
-import { LoginColors } from '../../constants';
-import { ServicesIntegrationConstants } from '../constants';
-import { servicesButtonBackground } from '../../utils';
-import { styles } from '../styles';
-
+import {GoogleSignin} from '@react-native-community/google-signin';
+// @ts-ignore
+import {WEB_GOOGLE_CLIENT_ID} from 'react-native-dotenv';
+import {loginColors} from '../../constants';
+import {servicesIntegrationConstants} from '../constants';
+import {servicesButtonBackground} from '../../utils';
+import {styles} from '../styles';
 
 const GoogleIntegration = () => {
   useEffect(() => {
     GoogleSignin.configure({
-      webClientId: '285670545046-ssdseouih07bbkq7vnipt2o5gidbuh28.apps.googleusercontent.com',
+      webClientId: WEB_GOOGLE_CLIENT_ID,
+      offlineAccess: true,
+      hostedDomain: '',
     });
   }, []);
 
   const signIn = async (): Promise<void> => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      // const userInfo = await GoogleSignin.signIn();
-      // this.setState({ userInfo });
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (e.g. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
+    await GoogleSignin.hasPlayServices();
+    await GoogleSignin.signIn();
   };
   return (
     <TouchableHighlight
       activeOpacity={0}
       style={{
         ...styles.buttonContainer,
-        backgroundColor: servicesButtonBackground(LoginColors, 'googleButton'),
+        backgroundColor: servicesButtonBackground(loginColors, 'googleButton'),
       }}
-      onPress={signIn}
-    >
+      onPress={signIn}>
       <View style={styles.buttonWrapper}>
-        <Icon style={{ ...styles.buttonIcon, paddingTop: 13 }} size={23} color={LoginColors.white} name="googleplus" />
+        <Icon
+          style={{...styles.buttonIcon}}
+          size={23}
+          color={loginColors.white}
+          name="googleplus"
+        />
         <View style={styles.buttonContent}>
           <Text style={styles.buttonInnerContent}>
-            {ServicesIntegrationConstants.buttonContentGoogle}
+            {servicesIntegrationConstants.buttonContentGoogle}
           </Text>
         </View>
       </View>

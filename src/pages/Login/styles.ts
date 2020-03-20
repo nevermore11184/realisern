@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
-import { LoginColors } from './constants';
+import {StyleSheet} from 'react-native';
+import {loginColors} from './constants';
 
 export const styles = StyleSheet.create({
   checkBox: {
-    backgroundColor: LoginColors.basicTransparentWhite,
+    backgroundColor: loginColors.basicTransparentWhite,
     borderRadius: 4,
     height: 15,
     marginRight: 11,
@@ -35,12 +35,12 @@ export const styles = StyleSheet.create({
     width: '80%',
   },
   dividerBorder: {
-    borderBottomColor: LoginColors.white,
+    borderBottomColor: loginColors.white,
     borderBottomWidth: 1,
     width: '40%',
   },
   dividerContent: {
-    color: LoginColors.white,
+    color: loginColors.white,
     left: '47%',
     position: 'absolute',
     top: '70%',
@@ -53,8 +53,14 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     width: '80%',
   },
+  fontWeightBold: {
+    fontWeight: 'bold',
+  },
+  forgotPasswordText: {
+    color: loginColors.white,
+  },
   iconWrapper: {
-    backgroundColor: LoginColors.basicTransparentWhite,
+    backgroundColor: loginColors.basicTransparentWhite,
     borderRadius: 3,
     width: 15,
   },
@@ -65,19 +71,19 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   loginButtonStyle: {
-    backgroundColor: LoginColors.white,
+    backgroundColor: loginColors.white,
     marginTop: 40,
     width: 330,
   },
   loginTitleStyle: {
-    color: LoginColors.blue,
+    color: loginColors.blue,
   },
   rowWrapper: {
     display: 'flex',
     flexDirection: 'row',
   },
   textInput: {
-    backgroundColor: LoginColors.basicTransparentWhite,
+    backgroundColor: loginColors.basicTransparentWhite,
     borderRadius: 3,
     height: 65,
     marginBottom: '4%',
@@ -91,7 +97,7 @@ export const styles = StyleSheet.create({
     zIndex: 1000,
   },
   whiteColor: {
-    color: LoginColors.white,
+    color: loginColors.white,
   },
   wrapper: {
     height: '100%',

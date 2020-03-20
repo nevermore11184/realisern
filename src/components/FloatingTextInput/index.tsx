@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Animated, TextInput, View } from 'react-native';
+import React, {useState} from 'react';
+import {Animated, TextInput, View} from 'react-native';
 import toUpperFirst from 'lodash/upperFirst';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { styles } from './styles';
-import { LoginColors, loginExpression } from '../../pages/Login/constants';
-import { validateEmail } from '../../pages/Login/utils';
+import {styles} from './styles';
+import {loginColors, loginExpression} from '../../pages/Login/constants';
+import {validateEmail} from '../../pages/Login/utils';
 
 interface FloatingTextInput {
   value: string;
@@ -58,8 +58,8 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
     }
   };
 
-
-  const returnAnimatedTitleStyles = () => ({ // returns styles
+  const returnAnimatedTitleStyles = () => ({
+    // returns styles
     top: position.interpolate({
       inputRange: [0, 1],
       outputRange: [14, 0],
@@ -68,13 +68,12 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
   });
 
   const displayValidationIcon = isFieldActive && validationIconIncluded;
-  const { checkIcon, closeCircle } = LoginColors;
+  const {checkIcon, closeCircle} = loginColors;
   return (
     <View style={styles.container}>
       <Animated.Text
         onPress={handleFocus}
-        style={[styles.titleStyles, returnAnimatedTitleStyles()]}
-      >
+        style={[styles.titleStyles, returnAnimatedTitleStyles()]}>
         {isFieldActive ? toUpperFirst(title) : title}
       </Animated.Text>
       {displayValidationIcon && (
@@ -82,15 +81,21 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
           size={15}
           style={{
             ...styles.validationIcon,
-            color: validateEmail(value, loginExpression) ? checkIcon : closeCircle,
+            color: validateEmail(value, loginExpression)
+              ? checkIcon
+              : closeCircle,
           }}
-          name={validateEmail(value, loginExpression) ? 'checkcircle' : 'closecircle'}
+          name={
+            validateEmail(value, loginExpression)
+              ? 'checkcircle'
+              : 'closecircle'
+          }
         />
       )}
       <TextInput
         value={value}
         secureTextEntry={secureTextEntry}
-        style={{ ...inputStyles, ...dynamicInputStyles(isFieldActive) }}
+        style={{...inputStyles, ...dynamicInputStyles(isFieldActive)}}
         underlineColorAndroid="transparent"
         onFocus={handleFocus}
         onBlur={handleBlur}

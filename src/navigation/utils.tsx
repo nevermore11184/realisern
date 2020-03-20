@@ -1,4 +1,3 @@
-
 interface HeaderOptions {
   title: string;
   headerStyle: any;
