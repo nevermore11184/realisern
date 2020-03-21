@@ -69,7 +69,7 @@ const LoginPage: React.FC<Props> = props => {
     <ImageBackground style={styles.wrapper} source={assets.background}>
       <ScrollView>
         <View style={styles.container}>
-          {/*<LogoIcon />*/}
+          <LogoIcon />
           <View style={styles.loginBlock}>
             <FloatingTextInputField
               name="email"
