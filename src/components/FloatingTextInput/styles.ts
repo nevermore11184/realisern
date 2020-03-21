@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
     left: 16,
     position: 'absolute',
     top: 10,
-    zIndex: 1,
   },
   validationIcon: {
     left: '90%',
