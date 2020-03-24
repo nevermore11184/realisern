@@ -1,20 +1,26 @@
-import React, { useState, ReactElement } from 'react';
-import { StackNavigationProp } from '@react-navigation/stack';
+import React, {useState} from 'react';
+import {StackNavigationProp} from '@react-navigation/stack';
 import {
-  View, Text, Image, ImageBackground,
+  View,
+  Text,
+  ImageBackground,
+  TouchableOpacity,
+  ScrollView,
 } from 'react-native';
-import { CheckBox, Button } from 'react-native-elements';
+import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { RootStackParamsList } from '../../navigation/RootNavigation';
+import {RootStackParamsList} from '../../navigation/RootNavigation';
+import assets from '../../assets/images';
 
 import FloatingTextInputField from '../../components/FloatingTextInput';
 import Social from './Social';
 
-import { LoginEnums, LoginColors } from './constants';
+import {loginConstants, loginColors} from './constants';
 
-import { dynamicInputStyles, animatedLabelStyles } from './utils';
+import {dynamicInputStyles, animatedLabelStyles} from './utils';
 
-import { styles } from './styles';
+import {styles} from './styles';
+import LogoIcon from '../../assets/icons/LogoIcon';
 
 type NavigationScreenProp = StackNavigationProp<RootStackParamsList, 'Login'>;
 
@@ -31,7 +37,7 @@ export interface CredentialsEventHandler {
   (argument: string): void;
 }
 
-const LoginPage: React.FC<Props> = (props) => {
+const LoginPage: React.FC<Props> = props => {
   const [rememberMe, setRememberMe] = useState(true);
   const [credentials, setCredentials] = useState({
     email: '',
@@ -46,84 +52,83 @@ const LoginPage: React.FC<Props> = (props) => {
     setRememberMe((prevState: boolean) => !prevState);
   };
 
-  const onCredentialsChange = (field: string): CredentialsEventHandler => (event: string) => {
-    setCredentials((prevState: Credentials): Credentials => ({
-      ...prevState,
-      [field]: event,
-    }));
+  const onCredentialsChange = (field: string): CredentialsEventHandler => (
+    event: string,
+  ) => {
+    setCredentials(
+      (prevState: Credentials): Credentials => ({
+        ...prevState,
+        [field]: event,
+      }),
+    );
   };
 
-  const checkedIcon = (size: number, name: string, color: string): ReactElement => (
-    <View style={styles.iconWrapper}>
-      <Icon name={name} size={size} color={color} />
-    </View>
-  );
-
-  const { navigation } = props;
+  const {navigation} = props;
 
   return (
-    <ImageBackground
-      style={styles.wrapper}
-      source={require('../../images/Rectangle.png')}
-    >
-      <View style={styles.container}>
-        <Image source={require('../../images/Bitmap.png')} />
-        <View style={styles.loginBlock}>
-          <FloatingTextInputField
-            name="email"
-            title="email"
-            validationIconIncluded
-            value={credentials.email}
-            inputStyles={styles.textInput}
-            onChangeText={onCredentialsChange('email')}
-            animatedLabelStyles={animatedLabelStyles}
-            dynamicInputStyles={dynamicInputStyles}
-          />
-          <FloatingTextInputField
-            name="password"
-            title="password"
-            value={credentials.password}
-            inputStyles={styles.textInput}
-            onChangeText={onCredentialsChange('password')}
-            animatedLabelStyles={animatedLabelStyles}
-            dynamicInputStyles={dynamicInputStyles}
-          />
-          <View style={styles.extraCTA}>
-            <View style={styles.rowWrapper}>
-              <CheckBox
-                checked={rememberMe}
-                center
-                iconRight
-                wrapperStyle={styles.customCheckBox}
-                containerStyle={styles.customCheckBox}
-                iconType="material"
-                checkedIcon={checkedIcon(14, 'check', 'black')}
-                uncheckedIcon={checkedIcon(0, 'check', 'transparent')}
-                checkedColor="black"
-                onPress={onHandleCheckBox}
-              />
-              <Text style={{ color: LoginColors.turquoise }}>
-                {LoginEnums.rememberMe}
+    <ImageBackground style={styles.wrapper} source={assets.background}>
+      <ScrollView>
+        <View style={styles.container}>
+          <LogoIcon />
+          <View style={styles.loginBlock}>
+            <FloatingTextInputField
+              name="email"
+              title="Email"
+              validationIconIncluded
+              value={credentials.email}
+              inputStyles={styles.textInput}
+              onChangeText={onCredentialsChange('email')}
+              animatedLabelStyles={animatedLabelStyles}
+              dynamicInputStyles={dynamicInputStyles}
+            />
+            <FloatingTextInputField
+              name="password"
+              title="Password"
+              value={credentials.password}
+              inputStyles={styles.textInput}
+              onChangeText={onCredentialsChange('password')}
+              animatedLabelStyles={animatedLabelStyles}
+              dynamicInputStyles={dynamicInputStyles}
+              secureTextEntry
+            />
+            <View style={styles.extraCTA}>
+              <TouchableOpacity activeOpacity={1} onPress={onHandleCheckBox}>
+                <View style={styles.rowWrapper}>
+                  <View style={styles.checkBox}>
+                    {rememberMe && (
+                      <Icon
+                        style={styles.fontWeightBold}
+                        size={13}
+                        name="check"
+                      />
+                    )}
+                  </View>
+                  <Text style={{color: loginColors.turquoise}}>
+                    {loginConstants.rememberMe}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+              <Text
+                onPress={onSignUpRedirect}
+                style={styles.forgotPasswordText}>
+                {loginConstants.forgotPassword}
               </Text>
             </View>
-            <Text onPress={onSignUpRedirect} style={{ color: LoginColors.white }}>
-              {LoginEnums.forgotPassword}
-            </Text>
+            <View style={styles.divider}>
+              <View style={styles.dividerBorder} />
+              <Text style={styles.dividerContent}>{loginConstants.or}</Text>
+              <View style={styles.dividerBorder} />
+            </View>
+            <Button
+              titleStyle={styles.loginTitleStyle}
+              buttonStyle={styles.loginButtonStyle}
+              onPress={() => 1}
+              title="LOGIN"
+            />
           </View>
-          <View style={styles.divider}>
-            <View style={styles.dividerBorder} />
-            <Text style={styles.dividerContent}>OR</Text>
-            <View style={styles.dividerBorder} />
-          </View>
-          <Button
-            titleStyle={styles.loginTitleStyle}
-            buttonStyle={styles.loginButtonStyle}
-            onPress={() => 1}
-            title="LOGIN"
-          />
+          <Social />
         </View>
-        <Social />
-      </View>
+      </ScrollView>
     </ImageBackground>
   );
 };

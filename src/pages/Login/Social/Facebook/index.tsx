@@ -1,25 +1,42 @@
-import React, {useEffect, useState} from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import React from 'react';
+import {Text, TouchableHighlight, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {LoginManager} from 'react-native-fbsdk';
+import {servicesIntegrationConstants} from '../constants';
+import {styles} from '../styles';
 
-
-import { styles } from './styles';
-import { LoginColors } from '../../constants';
-
+import {loginColors} from '../../constants';
+import {servicesButtonBackground} from '../../utils';
 
 const FacebookIntegration = () => {
-  const [userInfo, setUserInfo] = useState({});
+  const handleFacebookLogin = async (): Promise<void> => {
+    await LoginManager.logInWithPermissions(['public_profile', 'email']);
+  };
 
   Icon.loadFont();
 
   return (
     <TouchableHighlight
-      style={styles.facebookButton}
-      // onPress={loginWithFacebook}
-    >
-      <View style={styles.buttonContentWrapper}>
-        <Icon style={styles.facebookIcon} size={30} color={LoginColors.white} name="facebook" />
-        <Text style={styles.facebookTitle}>Login with Facebook</Text>
+      onPress={handleFacebookLogin}
+      style={{
+        ...styles.buttonContainer,
+        backgroundColor: servicesButtonBackground(
+          loginColors,
+          'facebookButton',
+        ),
+      }}>
+      <View style={styles.buttonWrapper}>
+        <Icon
+          style={styles.buttonIcon}
+          size={23}
+          color={loginColors.white}
+          name="facebook"
+        />
+        <View style={styles.buttonContent}>
+          <Text style={styles.buttonInnerContent}>
+            {servicesIntegrationConstants.buttonContentFacebook}
+          </Text>
+        </View>
       </View>
     </TouchableHighlight>
   );
