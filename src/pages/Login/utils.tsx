@@ -20,7 +20,6 @@ export const dynamicInputStyles = (isFieldActive: boolean): any => ({
 
 // services integration
 
-// eslint-disable-next-line max-len
 export const servicesButtonBackground = <T extends {}, P extends keyof T>(
   obj: T,
   type: P,

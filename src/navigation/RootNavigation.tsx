@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import {Dimensions} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoginPage from '../pages/Login';
@@ -16,7 +17,15 @@ const StackNavigator = createStackNavigator<RootStackParamsList>();
 
 const RootNavigation: React.FC = () => (
   <NavigationContainer>
-    <StackNavigator.Navigator>
+    <StackNavigator.Navigator
+      screenOptions={{
+        headerTransparent: true,
+        headerTitleStyle: {
+          textAlign: 'center',
+          justifyContent: 'center',
+          width: Dimensions.get('window').width,
+        },
+      }}>
       <StackNavigator.Screen
         options={setHeaderOptions('Login')}
         name="Login"

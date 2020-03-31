@@ -6,6 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
+  Platform,
 } from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -64,11 +65,14 @@ const LoginPage: React.FC<Props> = props => {
   };
 
   const {navigation} = props;
-
   return (
     <ImageBackground style={styles.wrapper} source={assets.background}>
       <ScrollView>
-        <View style={styles.container}>
+        <View
+          style={{
+            ...styles.container,
+            paddingTop: Platform.OS === 'ios' ? '30%' : '10%',
+          }}>
           <LogoIcon />
           <View style={styles.loginBlock}>
             <FloatingTextInputField

@@ -24,7 +24,7 @@ const GoogleIntegration = () => {
   };
   return (
     <TouchableHighlight
-      activeOpacity={0}
+      activeOpacity={1}
       style={{
         ...styles.buttonContainer,
         backgroundColor: servicesButtonBackground(loginColors, 'googleButton'),
