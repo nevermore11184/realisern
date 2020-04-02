@@ -8,17 +8,15 @@ import {
   ScrollView,
   Platform,
 } from 'react-native';
-import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {RootStackParamsList} from '../../navigation/RootNavigation';
 import assets from '../../assets/images';
 
 import FloatingTextInputField from '../../components/FloatingTextInput';
 import Social from './Social';
+import StandardWhiteButton from '../../components/StandardWhiteButton';
 
 import {loginConstants, loginColors} from './constants';
-
-import {dynamicInputStyles, animatedLabelStyles} from './utils';
 
 import {styles} from './styles';
 import LogoIcon from '../../assets/icons/LogoIcon';
@@ -45,8 +43,10 @@ const LoginPage: React.FC<Props> = props => {
     password: '',
   });
 
-  const onSignUpRedirect = (): void => {
-    navigation.navigate('SignUp');
+  const onScreenRedirect = (
+    key: 'Login' | 'SignUp' | 'ForgottenPassword',
+  ): (() => void) => (): void => {
+    navigation.navigate(key);
   };
 
   const onHandleCheckBox = (): void => {
@@ -82,8 +82,6 @@ const LoginPage: React.FC<Props> = props => {
               value={credentials.email}
               inputStyles={styles.textInput}
               onChangeText={onCredentialsChange('email')}
-              animatedLabelStyles={animatedLabelStyles}
-              dynamicInputStyles={dynamicInputStyles}
             />
             <FloatingTextInputField
               name="password"
@@ -91,8 +89,6 @@ const LoginPage: React.FC<Props> = props => {
               value={credentials.password}
               inputStyles={styles.textInput}
               onChangeText={onCredentialsChange('password')}
-              animatedLabelStyles={animatedLabelStyles}
-              dynamicInputStyles={dynamicInputStyles}
               secureTextEntry
             />
             <View style={styles.extraCTA}>
@@ -113,24 +109,22 @@ const LoginPage: React.FC<Props> = props => {
                 </View>
               </TouchableOpacity>
               <Text
-                onPress={onSignUpRedirect}
+                onPress={onScreenRedirect('ForgottenPassword')}
                 style={styles.forgotPasswordText}>
                 {loginConstants.forgotPassword}
               </Text>
             </View>
+            <StandardWhiteButton onPress={() => 'default'} title="LOGIN" />
             <View style={styles.divider}>
               <View style={styles.dividerBorder} />
               <Text style={styles.dividerContent}>{loginConstants.or}</Text>
               <View style={styles.dividerBorder} />
             </View>
-            <Button
-              titleStyle={styles.loginTitleStyle}
-              buttonStyle={styles.loginButtonStyle}
-              onPress={() => 1}
-              title="LOGIN"
-            />
           </View>
           <Social />
+          <View style={styles.forgottenPasswordWrapper}>
+            {loginConstants.notMember(onScreenRedirect('SignUp'))}
+          </View>
         </View>
       </ScrollView>
     </ImageBackground>

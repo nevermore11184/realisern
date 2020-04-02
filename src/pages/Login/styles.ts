@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
-    width: '80%',
+    width: '100%',
   },
   fontWeightBold: {
     fontWeight: 'bold',
@@ -68,15 +68,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     display: 'flex',
     marginTop: 36,
-    width: '100%',
-  },
-  loginButtonStyle: {
-    backgroundColor: loginColors.white,
-    marginTop: 40,
-    width: 330,
-  },
-  loginTitleStyle: {
-    color: loginColors.blue,
+    width: '80%',
   },
   rowWrapper: {
     display: 'flex',
@@ -102,5 +94,9 @@ export const styles = StyleSheet.create({
   wrapper: {
     height: '100%',
     width: '100%',
+  },
+  forgottenPasswordWrapper: {
+    width: '80%',
+    paddingLeft: '5%',
   },
 });

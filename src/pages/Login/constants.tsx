@@ -1,8 +1,5 @@
-export const loginConstants = {
-  forgotPassword: 'Forgotten password?',
-  rememberMe: 'Remember me?',
-  or: 'OR',
-};
+import React from 'react';
+import {Text, StyleSheet, View} from 'react-native';
 
 export const loginColors = {
   basicTransparentWhite: 'rgba(255, 255, 255, 0.440982)',
@@ -17,6 +14,35 @@ export const loginColors = {
   facebookButton: '#507CC0',
   twitterButton: '#64CCF1',
   googleButton: '#DF4930',
+};
+
+const styles = StyleSheet.create({
+  notMember: {
+    color: 'white',
+    marginRight: '1%',
+  },
+  notMemberWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: '5%',
+  },
+  linkText: {
+    color: loginColors.turquoise,
+  },
+});
+
+export const loginConstants = {
+  forgotPassword: 'Forgotten password?',
+  rememberMe: 'Remember me?',
+  or: 'OR',
+  notMember: (func: () => void) => (
+    <View style={styles.notMemberWrapper}>
+      <Text style={styles.notMember}>{'Not a member? Sign up'}</Text>
+      <Text style={styles.linkText} onPress={func}>
+        {'here'}
+      </Text>
+    </View>
+  ),
 };
 
 // eslint-disable-next-line

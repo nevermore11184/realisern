@@ -13,7 +13,7 @@ const SignUp: React.FC<Props> = props => {
   const {navigation} = props;
   return (
     <View
-      style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      style={{display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '30%'}}>
       <Button
         title="Go back to Login screen"
         onPress={(): void => navigation.goBack()}

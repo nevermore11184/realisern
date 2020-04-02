@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     height: 60,
     marginBottom: 16,
     marginVertical: 4,
-    width: '80%',
+    width: '100%',
   },
   textInput: {
     color: 'black',
