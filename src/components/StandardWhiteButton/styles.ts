@@ -2,11 +2,11 @@ import {StyleSheet} from 'react-native';
 import {loginColors} from '../../pages/Login/constants';
 
 export const styles = StyleSheet.create({
-  loginButtonStyle: {
+  loginButton: {
     backgroundColor: loginColors.white,
     width: '100%',
   },
-  loginTitleStyle: {
+  loginTitle: {
     color: loginColors.blue,
   },
   standardButtonWrapper: {

@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {View, Text, ImageBackground} from 'react-native';
+
+import i18n from '../../../config/locales/customisation';
+
 import {RootStackParamsList} from '../../../navigation/RootNavigation';
 import assets from '../../../assets/images';
 import FloatingTextInputField from '../../../components/FloatingTextInput';
 
 import {styles} from '../styles';
 import LogoIcon from '../../../assets/icons/LogoIcon';
-import {resetPassword, resetPasswordText} from '../constants';
 import StandardWhiteButton from '../../../components/StandardWhiteButton';
 
 type NavigationScreenProp = StackNavigationProp<
@@ -38,8 +40,12 @@ const EmailConfirmation: React.FC<Props> = props => {
           <LogoIcon />
         </View>
         <View style={styles.contentWrapper}>
-          <Text style={styles.forgottenPasswordTitle}>{resetPassword}</Text>
-          <Text style={styles.forgottenPasswordText}>{resetPasswordText}</Text>
+          <Text style={styles.forgottenPasswordTitle}>
+            {i18n.t('loginFlow.resetPassword.resetPasswordTitle')}
+          </Text>
+          <Text style={styles.forgottenPasswordText}>
+            {i18n.t('loginFlow.resetPassword.resetPasswordText')}
+          </Text>
           <View style={styles.inputWrapper}>
             <FloatingTextInputField
               value={forgottenAccountEmail}
@@ -56,4 +62,5 @@ const EmailConfirmation: React.FC<Props> = props => {
   );
 };
 
+//@ts-ignore
 export default EmailConfirmation;

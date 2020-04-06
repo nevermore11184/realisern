@@ -35,6 +35,7 @@ target 'realisern' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'Firebase/Analytics'
   pod 'GoogleSignIn', '~> 5.0.2'
+  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'

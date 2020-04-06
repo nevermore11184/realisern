@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
     paddingLeft: '10%',
     paddingRight: '10%',
     paddingBottom: '20%',
-    display: 'flex',
   },
   forgottenPasswordTitle: {
     fontSize: 24,
@@ -22,7 +21,6 @@ export const styles = StyleSheet.create({
   },
   logoWrapper: {
     width: '100%',
-    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },

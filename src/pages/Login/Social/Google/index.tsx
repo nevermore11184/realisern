@@ -5,9 +5,9 @@ import {GoogleSignin} from '@react-native-community/google-signin';
 // @ts-ignore
 import {WEB_GOOGLE_CLIENT_ID} from 'react-native-dotenv';
 import {loginColors} from '../../constants';
-import {servicesIntegrationConstants} from '../constants';
 import {servicesButtonBackground} from '../../utils';
 import {styles} from '../styles';
+import i18n from '../../../../config/locales/customisation';
 
 const GoogleIntegration = () => {
   useEffect(() => {
@@ -39,7 +39,7 @@ const GoogleIntegration = () => {
         />
         <View style={styles.buttonContent}>
           <Text style={styles.buttonInnerContent}>
-            {servicesIntegrationConstants.buttonContentGoogle}
+            {i18n.t('loginFlow.social.buttonContentGoogle')}
           </Text>
         </View>
       </View>

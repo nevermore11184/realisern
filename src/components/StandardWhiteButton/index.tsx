@@ -3,18 +3,18 @@ import {View} from 'react-native';
 import {Button} from 'react-native-elements';
 import {styles} from './styles';
 
-interface StandardWhiteButtonProps {
+interface Props {
   onPress: () => void | string;
   title: string;
 }
 
-const StandardWhiteButton = (props: StandardWhiteButtonProps) => {
+const StandardWhiteButton = (props: Props) => {
   const {onPress, title} = props;
   return (
     <View style={styles.standardButtonWrapper}>
       <Button
-        titleStyle={styles.loginTitleStyle}
-        buttonStyle={styles.loginButtonStyle}
+        titleStyle={styles.loginTitle}
+        buttonStyle={styles.loginButton}
         onPress={onPress}
         title={title}
       />

@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {ApolloClient} from 'apollo-client';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {HttpLink} from 'apollo-link-http';
-import store from './reducer/createStore';
+import {store} from './reducer/createStore';
 
 const AppHOC = <T extends {}>(WrappedComponent: ComponentType<T>) => (
   props: T,

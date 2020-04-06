@@ -8,10 +8,10 @@ import {
 } from '@react-navigation/stack';
 import LoginPage from '../pages/Login';
 import SignUpPage from '../pages/SignUp';
-import EmailConfirmation from '../pages/ForgottenPassword/pages/EmailConfirmation';
+import EmailConfirmation from '../pages/ForgottenPassword/flow/EmailConfirmation';
+import ResetPassword from '../pages/ForgottenPassword/flow/ResetPassword';
 
 import {setHeaderOptions} from './utils';
-import ResetPassword from '../pages/ForgottenPassword/pages/ResetPassword';
 
 export type RootStackParamsList = {
   Login: undefined;
@@ -23,7 +23,7 @@ export type RootStackParamsList = {
 
 const StackNavigator = createStackNavigator<RootStackParamsList>();
 
-const currentWidth = Dimensions.get('window').width;
+const {width} = Dimensions.get('window');
 
 const RootNavigation: React.FC = () => {
   type NavigationScreenProp = StackNavigationProp<
@@ -35,7 +35,7 @@ const RootNavigation: React.FC = () => {
     navigation: NavigationScreenProp;
   }
   const ForgottenPasswordNavigator: React.FC<Props> = () => {
-    // nester navigation for forgotten password procedures
+    // nested navigation for forgotten password procedures
     return (
       <StackNavigator.Navigator
         screenOptions={{
@@ -44,7 +44,7 @@ const RootNavigation: React.FC = () => {
           headerTitleStyle: {
             textAlign: 'center',
             justifyContent: 'center',
-            width: currentWidth,
+            width: width,
           },
         }}>
         <StackNavigator.Screen
@@ -65,7 +65,7 @@ const RootNavigation: React.FC = () => {
           headerTitleStyle: {
             textAlign: 'center',
             justifyContent: 'center',
-            width: currentWidth,
+            width: width,
           },
         }}>
         <StackNavigator.Screen

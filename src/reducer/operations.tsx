@@ -1,10 +1,15 @@
-import actions from './actions';
+import loginReducer from './loginReducer';
 import {Dispatch} from 'redux';
 
 const setUser = () => (dispatch: Dispatch) => {
-  dispatch(actions.setUser.request());
-  dispatch(actions.setUser.success());
-  dispatch(actions.setUser.failure());
+  dispatch(loginReducer.actions.setUserRequest());
+  dispatch(
+    loginReducer.actions.setUserSuccess({
+      firstName: 'vincent',
+      lastName: 'marnisi',
+    }),
+  );
+  dispatch(loginReducer.actions.setUserFailure('error'));
 };
 
 export default {

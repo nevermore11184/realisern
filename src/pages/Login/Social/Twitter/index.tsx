@@ -2,9 +2,9 @@ import React from 'react';
 import {Text, TouchableHighlight, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {loginColors} from '../../constants';
-import {servicesIntegrationConstants} from '../constants';
 import {servicesButtonBackground} from '../../utils';
 import {styles} from '../styles';
+import i18n from '../../../../config/locales/customisation';
 
 const TwitterIntegration = () => (
   <TouchableHighlight
@@ -21,7 +21,7 @@ const TwitterIntegration = () => (
       />
       <View style={styles.buttonContent}>
         <Text style={styles.buttonInnerContent}>
-          {servicesIntegrationConstants.buttonContentTwitter}
+          {i18n.t('loginFlow.social.buttonContentTwitter')}
         </Text>
       </View>
     </View>

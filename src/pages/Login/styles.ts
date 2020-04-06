@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
-    display: 'flex',
     paddingBottom: 32,
     paddingTop: '10%',
     width: '100%',
@@ -25,7 +24,6 @@ export const styles = StyleSheet.create({
     marginTop: 1,
   },
   divider: {
-    display: 'flex',
     flexDirection: 'row',
     height: 30,
     justifyContent: 'space-between',
@@ -45,9 +43,19 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: '70%',
   },
+  notMember: {
+    color: 'white',
+    marginRight: '1%',
+  },
+  notMemberWrapper: {
+    flexDirection: 'row',
+    marginTop: '5%',
+  },
+  linkText: {
+    color: loginColors.turquoise,
+  },
   extraCTA: {
     alignItems: 'center',
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
@@ -66,12 +74,10 @@ export const styles = StyleSheet.create({
   },
   loginBlock: {
     alignItems: 'center',
-    display: 'flex',
     marginTop: 36,
     width: '80%',
   },
   rowWrapper: {
-    display: 'flex',
     flexDirection: 'row',
   },
   textInput: {

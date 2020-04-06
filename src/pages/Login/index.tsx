@@ -16,10 +16,11 @@ import FloatingTextInputField from '../../components/FloatingTextInput';
 import Social from './Social';
 import StandardWhiteButton from '../../components/StandardWhiteButton';
 
-import {loginConstants, loginColors} from './constants';
+import {loginColors} from './constants';
 
 import {styles} from './styles';
 import LogoIcon from '../../assets/icons/LogoIcon';
+import i18n from '../../config/locales/customisation';
 
 type NavigationScreenProp = StackNavigationProp<RootStackParamsList, 'Login'>;
 
@@ -104,26 +105,37 @@ const LoginPage: React.FC<Props> = props => {
                     )}
                   </View>
                   <Text style={{color: loginColors.turquoise}}>
-                    {loginConstants.rememberMe}
+                    {i18n.t('loginFlow.rememberMe')}
                   </Text>
                 </View>
               </TouchableOpacity>
               <Text
                 onPress={onScreenRedirect('ForgottenPassword')}
                 style={styles.forgotPasswordText}>
-                {loginConstants.forgotPassword}
+                {i18n.t('loginFlow.forgotPassword')}
               </Text>
             </View>
             <StandardWhiteButton onPress={() => 'default'} title="LOGIN" />
             <View style={styles.divider}>
               <View style={styles.dividerBorder} />
-              <Text style={styles.dividerContent}>{loginConstants.or}</Text>
+              <Text style={styles.dividerContent}>
+                {i18n.t('loginFlow.or')}
+              </Text>
               <View style={styles.dividerBorder} />
             </View>
           </View>
           <Social />
           <View style={styles.forgottenPasswordWrapper}>
-            {loginConstants.notMember(onScreenRedirect('SignUp'))}
+            <View style={styles.notMemberWrapper}>
+              <Text style={styles.notMember}>
+                {i18n.t('loginFlow.notMember')}
+              </Text>
+              <Text
+                onPress={onScreenRedirect('SignUp')}
+                style={styles.linkText}>
+                {i18n.t('loginFlow.here')}
+              </Text>
+            </View>
           </View>
         </View>
       </ScrollView>

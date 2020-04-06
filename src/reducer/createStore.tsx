@@ -1,9 +1,14 @@
-import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './reducer';
+import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
+import loginReducer from './loginReducer';
 
-const rootStore = combineReducers({rootReducer});
+const middleware = getDefaultMiddleware({
+  immutableCheck: false,
+  serializableCheck: false,
+  thunk: true,
+});
 
-const store = createStore(rootStore, compose(applyMiddleware(thunk)));
-
-export default store;
+export const store = configureStore({
+  reducer: {loginReducer: loginReducer.reducer},
+  middleware,
+  devTools: process.env.NODE_ENV !== 'production',
+});
