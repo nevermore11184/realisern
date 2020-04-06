@@ -56,6 +56,7 @@ const ResetPassword: React.FC<Props> = () => {
             {resetPasswordsInputs.map((input: Input) => {
               return (
                 <FloatingTextInputField
+                  key={input.name}
                   value={localState[input.name]}
                   title={input.title}
                   secureTextEntry={input.secureTextEntry}
