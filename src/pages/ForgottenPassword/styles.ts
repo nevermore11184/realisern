@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     color: loginColors.white,
     fontWeight: '700',
+    lineHeight: 40,
   },
   logoWrapper: {
     width: '100%',
@@ -47,5 +48,6 @@ export const styles = StyleSheet.create({
   inputWrapper: {
     width: '100%',
     marginTop: '7%',
+    height: '100%',
   },
 });

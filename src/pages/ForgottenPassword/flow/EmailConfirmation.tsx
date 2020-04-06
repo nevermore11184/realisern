@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {View, Text, ImageBackground} from 'react-native';
 
@@ -11,6 +11,8 @@ import FloatingTextInputField from '../../../components/FloatingTextInput';
 import {styles} from '../styles';
 import LogoIcon from '../../../assets/icons/LogoIcon';
 import StandardWhiteButton from '../../../components/StandardWhiteButton';
+import {validateEmail} from '../../Login/utils';
+import {loginExpression} from '../../Login/constants';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -23,13 +25,22 @@ interface Props {
 
 const EmailConfirmation: React.FC<Props> = props => {
   const [forgottenAccountEmail, setForgottenAccountEmail] = useState('');
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
   const {navigation} = props;
+
   const onChangeEmail = (field: string): void => {
     setForgottenAccountEmail(field);
   };
   const onContinue = () => {
+    if (isButtonDisabled) {
+      return;
+    }
     navigation.navigate('ForgottenPassword', {screen: 'ResetPassword'});
   };
+
+  useEffect(() => {
+    setButtonDisabled(!validateEmail(forgottenAccountEmail, loginExpression));
+  }, [forgottenAccountEmail]);
 
   return (
     <ImageBackground
@@ -41,21 +52,26 @@ const EmailConfirmation: React.FC<Props> = props => {
         </View>
         <View style={styles.contentWrapper}>
           <Text style={styles.forgottenPasswordTitle}>
-            {i18n.t('loginFlow.resetPassword.resetPasswordTitle')}
+            {i18n.t('loginFlow.resetPassword.firstStep.resetPasswordTitle')}
           </Text>
           <Text style={styles.forgottenPasswordText}>
-            {i18n.t('loginFlow.resetPassword.resetPasswordText')}
+            {i18n.t('loginFlow.resetPassword.firstStep.resetPasswordText')}
           </Text>
           <View style={styles.inputWrapper}>
             <FloatingTextInputField
               value={forgottenAccountEmail}
               title="Email"
+              validationIconIncluded
               inputStyles={styles.textInput}
               onChangeText={onChangeEmail}
               name="emailConfirmation"
             />
+            <StandardWhiteButton
+              disabled={isButtonDisabled}
+              onPress={onContinue}
+              title="CONTINUE"
+            />
           </View>
-          <StandardWhiteButton onPress={onContinue} title="CONTINUE" />
         </View>
       </View>
     </ImageBackground>

@@ -6,6 +6,7 @@ import {styles} from './styles';
 interface Props {
   onPress: () => void | string;
   title: string;
+  disabled?: boolean;
 }
 
 const StandardWhiteButton = (props: Props) => {
