@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   loginButton: {
     backgroundColor: loginColors.white,
     width: '100%',
+    height: 48,
   },
   loginTitle: {
     color: loginColors.blue,
@@ -12,6 +13,5 @@ export const styles = StyleSheet.create({
   standardButtonWrapper: {
     width: '100%',
     marginTop: '8%',
-    height: 48,
   },
 });

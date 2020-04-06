@@ -45,6 +45,9 @@ export const styles = StyleSheet.create({
     paddingTop: 32,
     width: '100%',
   },
+  inputItem: {
+    marginBottom: 10,
+  },
   inputWrapper: {
     width: '100%',
     marginTop: '7%',

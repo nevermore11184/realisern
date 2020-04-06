@@ -9,6 +9,7 @@ import LogoIcon from '../../../assets/icons/LogoIcon';
 import i18n from '../../../config/locales/customisation';
 import FloatingTextInputField from '../../../components/FloatingTextInput';
 import {resetPasswordsInputs} from './constants';
+import StandardWhiteButton from '../../../components/StandardWhiteButton';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -55,17 +56,22 @@ const ResetPassword: React.FC<Props> = () => {
           <View style={styles.inputWrapper}>
             {resetPasswordsInputs.map((input: Input) => {
               return (
-                <FloatingTextInputField
-                  key={input.name}
-                  value={localState[input.name]}
-                  title={input.title}
-                  secureTextEntry={input.secureTextEntry}
-                  inputStyles={styles.textInput}
-                  onChangeText={onChangeField(input.name)}
-                  name={input.name}
-                />
+                <View key={input.name} style={styles.inputItem}>
+                  <FloatingTextInputField
+                    value={localState[input.name]}
+                    title={input.title}
+                    secureTextEntry={input.secureTextEntry}
+                    inputStyles={styles.textInput}
+                    onChangeText={onChangeField(input.name)}
+                    name={input.name}
+                  />
+                </View>
               );
             })}
+            <StandardWhiteButton
+              onPress={() => 'default'}
+              title="RESET PASSWORD"
+            />
           </View>
         </View>
       </View>
