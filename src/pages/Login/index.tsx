@@ -14,7 +14,7 @@ import assets from '../../assets/images';
 
 import FloatingTextInputField from '../../components/FloatingTextInput';
 import Social from './Social';
-import StandardWhiteButton from '../../components/StandardWhiteButton';
+import StandardButton from '../../components/StandardButton';
 
 import {loginColors} from './constants';
 
@@ -46,7 +46,7 @@ const LoginPage: React.FC<Props> = props => {
 
   const onScreenRedirect = (
     key: 'Login' | 'SignUp' | 'ForgottenPassword',
-  ): (() => void) => (): void => {
+  ) => (): void => {
     navigation.navigate(key);
   };
 
@@ -115,7 +115,7 @@ const LoginPage: React.FC<Props> = props => {
                 {i18n.t('loginFlow.forgotPassword')}
               </Text>
             </View>
-            <StandardWhiteButton onPress={() => 'default'} title="LOGIN" />
+            <StandardButton onPress={() => 'default'} title="LOGIN" />
             <View style={styles.divider}>
               <View style={styles.dividerBorder} />
               <Text style={styles.dividerContent}>

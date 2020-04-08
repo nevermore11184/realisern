@@ -13,6 +13,14 @@ export default {
       },
       secondStep: {
         enterCode: 'Please enter the code and confirm your new password',
+        bottomHelpText: {
+          firstString: 'Haven`t received an email?',
+          secondString:
+            'If you cannot see the email in your inbox, please check your spam folder. Contact us info@realiseme.com',
+        },
+      },
+      thirdStep: {
+        title: 'You have reset your password',
       },
     },
     social: {

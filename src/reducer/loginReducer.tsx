@@ -6,13 +6,16 @@ interface User {
 }
 
 interface InitialState {
-  user: User | object;
+  user: User;
   isLoading: boolean;
   error: string;
 }
 
 const initialState: InitialState = {
-  user: {},
+  user: {
+    firstName: '',
+    lastName: '',
+  },
   isLoading: false,
   error: '',
 };

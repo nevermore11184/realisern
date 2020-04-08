@@ -7,15 +7,16 @@ interface Props {
   onPress: () => void | string;
   title: string;
   disabled?: boolean;
+  additionalStyles?: object;
 }
 
-const StandardWhiteButton = (props: Props) => {
-  const {onPress, title} = props;
+const StandardButton = (props: Props) => {
+  const {onPress, title, additionalStyles} = props;
   return (
     <View style={styles.standardButtonWrapper}>
       <Button
         titleStyle={styles.loginTitle}
-        buttonStyle={styles.loginButton}
+        buttonStyle={{...styles.loginButton, ...additionalStyles}}
         onPress={onPress}
         title={title}
       />
@@ -23,4 +24,4 @@ const StandardWhiteButton = (props: Props) => {
   );
 };
 
-export default StandardWhiteButton;
+export default StandardButton;

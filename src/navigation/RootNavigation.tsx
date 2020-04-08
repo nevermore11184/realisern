@@ -10,6 +10,7 @@ import LoginPage from '../pages/Login';
 import SignUpPage from '../pages/SignUp';
 import EmailConfirmation from '../pages/ForgottenPassword/flow/EmailConfirmation';
 import ResetPassword from '../pages/ForgottenPassword/flow/ResetPassword';
+import ResetPasswordFinalScreen from '../pages/ForgottenPassword/flow/ResetPasswordFinalScreen';
 
 import {setHeaderOptions} from './utils';
 
@@ -19,6 +20,7 @@ export type RootStackParamsList = {
   ForgottenPassword: {screen: string};
   EmailConfirmation: undefined;
   ResetPassword: undefined;
+  ResetPasswordFinalScreen: undefined;
 };
 
 const StackNavigator = createStackNavigator<RootStackParamsList>();
@@ -26,6 +28,8 @@ const StackNavigator = createStackNavigator<RootStackParamsList>();
 const {width} = Dimensions.get('window');
 
 const RootNavigation: React.FC = () => {
+  /** specifying properties for ForgottenPassword screens flow */
+
   type NavigationScreenProp = StackNavigationProp<
     RootStackParamsList,
     'ForgottenPassword'
@@ -52,6 +56,10 @@ const RootNavigation: React.FC = () => {
           component={EmailConfirmation}
         />
         <StackNavigator.Screen name="ResetPassword" component={ResetPassword} />
+        <StackNavigator.Screen
+          name="ResetPasswordFinalScreen"
+          component={ResetPasswordFinalScreen}
+        />
       </StackNavigator.Navigator>
     );
   };

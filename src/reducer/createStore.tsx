@@ -2,7 +2,7 @@ import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import loginReducer from './loginReducer';
 
 const middleware = getDefaultMiddleware({
-  immutableCheck: false,
+  immutableCheck: true,
   serializableCheck: false,
   thunk: true,
 });

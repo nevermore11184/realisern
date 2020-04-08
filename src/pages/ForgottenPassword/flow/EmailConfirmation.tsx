@@ -10,7 +10,7 @@ import FloatingTextInputField from '../../../components/FloatingTextInput';
 
 import {styles} from '../styles';
 import LogoIcon from '../../../assets/icons/LogoIcon';
-import StandardWhiteButton from '../../../components/StandardWhiteButton';
+import StandardButton from '../../../components/StandardButton';
 import {validateEmail} from '../../Login/utils';
 import {loginExpression} from '../../Login/constants';
 
@@ -66,7 +66,7 @@ const EmailConfirmation: React.FC<Props> = props => {
               onChangeText={onChangeEmail}
               name="emailConfirmation"
             />
-            <StandardWhiteButton
+            <StandardButton
               disabled={isButtonDisabled}
               onPress={onContinue}
               title="CONTINUE"
