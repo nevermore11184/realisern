@@ -1,9 +1,3 @@
-export const loginConstants = {
-  forgotPassword: 'Forgotten password?',
-  rememberMe: 'Remember me?',
-  or: 'OR',
-};
-
 export const loginColors = {
   basicTransparentWhite: 'rgba(255, 255, 255, 0.440982)',
   white: '#fff',

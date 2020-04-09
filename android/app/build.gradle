@@ -131,8 +131,11 @@ android {
         applicationId "com.realisern"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        vectorDrawables.useSupportLibrary = true
+        generatedDensities = []
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true // <-- here
     }
     splits {
         abi {
@@ -180,9 +183,12 @@ android {
 
 dependencies {
     implementation project(':react-native-svg')
-    implementation project(':@react-native-community_google-signin')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:design:27.1.0'
+    compile project(':react-native-i18n')
+
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

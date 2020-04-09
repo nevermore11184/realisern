@@ -10,18 +10,17 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {styles} from './styles';
 import {loginColors, loginExpression} from '../../pages/Login/constants';
 import {validateEmail} from '../../pages/Login/utils';
+import {animatedLabelStyles, dynamicInputStyles} from './utils';
 
 interface FloatingTextInput {
   value: string;
   validationIconIncluded?: boolean;
   title: string;
-  inputStyles: any;
+  inputStyles: object;
   onChangeText: (arg: string) => void;
   name: string;
   keyboardType?: () => void;
   otherTextInputProps?: any;
-  animatedLabelStyles: (arg: boolean) => any;
-  dynamicInputStyles: (arg: boolean) => any;
   secureTextEntry?: boolean;
 }
 
@@ -35,8 +34,6 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
     onChangeText,
     keyboardType,
     otherTextInputProps,
-    animatedLabelStyles,
-    dynamicInputStyles,
     secureTextEntry,
     name,
   } = props;
@@ -55,7 +52,6 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
   };
 
   const handleBlur = (): void => {
-    console.log('handle blur', name);
     if (isFieldActive && !value) {
       setFieldActive(false);
       Animated.timing(position, {
@@ -75,7 +71,9 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
   });
 
   const displayValidationIcon = isFieldActive && validationIconIncluded;
+
   const {checkIcon, closeCircle} = loginColors;
+
   return (
     <TouchableWithoutFeedback onPress={handleFocus}>
       <View style={styles.container}>
@@ -108,7 +106,10 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
           value={value}
           name={name}
           secureTextEntry={secureTextEntry}
-          style={{...inputStyles, ...dynamicInputStyles(isFieldActive)}}
+          style={[
+            inputStyles,
+            dynamicInputStyles && dynamicInputStyles(isFieldActive),
+          ]}
           underlineColorAndroid="transparent"
           onFocus={handleFocus}
           onBlur={handleBlur}

@@ -4,7 +4,6 @@ import {loginColors} from '../constants';
 export const styles = StyleSheet.create({
   buttonContainer: {
     borderRadius: 4,
-    display: 'flex',
     flexDirection: 'row',
     height: 50,
     marginTop: 20,
@@ -13,7 +12,6 @@ export const styles = StyleSheet.create({
   buttonContent: {
     alignItems: 'center',
     alignSelf: 'center',
-    display: 'flex',
     justifyContent: 'center',
     width: '60%',
   },
@@ -28,7 +26,6 @@ export const styles = StyleSheet.create({
     fontWeight: '300',
   },
   buttonWrapper: {
-    display: 'flex',
     flexDirection: 'row',
   },
   servicesIntegrationWrapper: {

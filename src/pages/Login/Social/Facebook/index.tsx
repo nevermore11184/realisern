@@ -2,11 +2,11 @@ import React from 'react';
 import {Text, TouchableHighlight, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {LoginManager} from 'react-native-fbsdk';
-import {servicesIntegrationConstants} from '../constants';
 import {styles} from '../styles';
 
 import {loginColors} from '../../constants';
 import {servicesButtonBackground} from '../../utils';
+import i18n from '../../../../config/locales/customisation';
 
 const FacebookIntegration = () => {
   const handleFacebookLogin = async (): Promise<void> => {
@@ -34,7 +34,7 @@ const FacebookIntegration = () => {
         />
         <View style={styles.buttonContent}>
           <Text style={styles.buttonInnerContent}>
-            {servicesIntegrationConstants.buttonContentFacebook}
+            {i18n.t('loginFlow.social.buttonContentFacebook')}
           </Text>
         </View>
       </View>

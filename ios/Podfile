@@ -36,9 +36,9 @@ target 'realisern' do
   pod 'Firebase/Analytics'
   pod 'GoogleSignIn', '~> 5.0.2'
 
-  pod 'RNGoogleSignin', :path => '../node_modules/@react-native-community/google-signin'
-
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
+  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
   target 'realisernTests' do
     inherit! :search_paths

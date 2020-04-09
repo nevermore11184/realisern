@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
-    display: 'flex',
     paddingBottom: 32,
     paddingTop: '10%',
     width: '100%',
@@ -25,7 +24,6 @@ export const styles = StyleSheet.create({
     marginTop: 1,
   },
   divider: {
-    display: 'flex',
     flexDirection: 'row',
     height: 30,
     justifyContent: 'space-between',
@@ -45,13 +43,23 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: '70%',
   },
+  notMember: {
+    color: 'white',
+    marginRight: '1%',
+  },
+  notMemberWrapper: {
+    flexDirection: 'row',
+    marginTop: '5%',
+  },
+  linkText: {
+    color: loginColors.turquoise,
+  },
   extraCTA: {
     alignItems: 'center',
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
-    width: '80%',
+    width: '100%',
   },
   fontWeightBold: {
     fontWeight: 'bold',
@@ -66,20 +74,10 @@ export const styles = StyleSheet.create({
   },
   loginBlock: {
     alignItems: 'center',
-    display: 'flex',
     marginTop: 36,
-    width: '100%',
-  },
-  loginButtonStyle: {
-    backgroundColor: loginColors.white,
-    marginTop: 40,
-    width: 330,
-  },
-  loginTitleStyle: {
-    color: loginColors.blue,
+    width: '80%',
   },
   rowWrapper: {
-    display: 'flex',
     flexDirection: 'row',
   },
   textInput: {
@@ -102,5 +100,9 @@ export const styles = StyleSheet.create({
   wrapper: {
     height: '100%',
     width: '100%',
+  },
+  forgottenPasswordWrapper: {
+    width: '80%',
+    paddingLeft: '5%',
   },
 });
