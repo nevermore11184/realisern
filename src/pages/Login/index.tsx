@@ -6,21 +6,21 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
+  Platform,
 } from 'react-native';
-import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {RootStackParamsList} from '../../navigation/RootNavigation';
 import assets from '../../assets/images';
 
 import FloatingTextInputField from '../../components/FloatingTextInput';
 import Social from './Social';
+import StandardButton from '../../components/StandardButton';
 
-import {loginConstants, loginColors} from './constants';
-
-import {dynamicInputStyles, animatedLabelStyles} from './utils';
+import {loginColors} from './constants';
 
 import {styles} from './styles';
 import LogoIcon from '../../assets/icons/LogoIcon';
+import i18n from '../../config/locales/customisation';
 
 type NavigationScreenProp = StackNavigationProp<RootStackParamsList, 'Login'>;
 
@@ -44,8 +44,10 @@ const LoginPage: React.FC<Props> = props => {
     password: '',
   });
 
-  const onSignUpRedirect = (): void => {
-    navigation.navigate('SignUp');
+  const onScreenRedirect = (
+    key: 'Login' | 'SignUp' | 'ForgottenPassword',
+  ) => (): void => {
+    navigation.navigate(key);
   };
 
   const onHandleCheckBox = (): void => {
@@ -64,11 +66,14 @@ const LoginPage: React.FC<Props> = props => {
   };
 
   const {navigation} = props;
-
   return (
     <ImageBackground style={styles.wrapper} source={assets.background}>
       <ScrollView>
-        <View style={styles.container}>
+        <View
+          style={{
+            ...styles.container,
+            paddingTop: Platform.OS === 'ios' ? '30%' : '10%',
+          }}>
           <LogoIcon />
           <View style={styles.loginBlock}>
             <FloatingTextInputField
@@ -78,8 +83,6 @@ const LoginPage: React.FC<Props> = props => {
               value={credentials.email}
               inputStyles={styles.textInput}
               onChangeText={onCredentialsChange('email')}
-              animatedLabelStyles={animatedLabelStyles}
-              dynamicInputStyles={dynamicInputStyles}
             />
             <FloatingTextInputField
               name="password"
@@ -87,8 +90,6 @@ const LoginPage: React.FC<Props> = props => {
               value={credentials.password}
               inputStyles={styles.textInput}
               onChangeText={onCredentialsChange('password')}
-              animatedLabelStyles={animatedLabelStyles}
-              dynamicInputStyles={dynamicInputStyles}
               secureTextEntry
             />
             <View style={styles.extraCTA}>
@@ -104,29 +105,38 @@ const LoginPage: React.FC<Props> = props => {
                     )}
                   </View>
                   <Text style={{color: loginColors.turquoise}}>
-                    {loginConstants.rememberMe}
+                    {i18n.t('loginFlow.rememberMe')}
                   </Text>
                 </View>
               </TouchableOpacity>
               <Text
-                onPress={onSignUpRedirect}
+                onPress={onScreenRedirect('ForgottenPassword')}
                 style={styles.forgotPasswordText}>
-                {loginConstants.forgotPassword}
+                {i18n.t('loginFlow.forgotPassword')}
               </Text>
             </View>
+            <StandardButton onPress={() => 'default'} title="LOGIN" />
             <View style={styles.divider}>
               <View style={styles.dividerBorder} />
-              <Text style={styles.dividerContent}>{loginConstants.or}</Text>
+              <Text style={styles.dividerContent}>
+                {i18n.t('loginFlow.or')}
+              </Text>
               <View style={styles.dividerBorder} />
             </View>
-            <Button
-              titleStyle={styles.loginTitleStyle}
-              buttonStyle={styles.loginButtonStyle}
-              onPress={() => 1}
-              title="LOGIN"
-            />
           </View>
           <Social />
+          <View style={styles.forgottenPasswordWrapper}>
+            <View style={styles.notMemberWrapper}>
+              <Text style={styles.notMember}>
+                {i18n.t('loginFlow.notMember')}
+              </Text>
+              <Text
+                onPress={onScreenRedirect('SignUp')}
+                style={styles.linkText}>
+                {i18n.t('loginFlow.here')}
+              </Text>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </ImageBackground>

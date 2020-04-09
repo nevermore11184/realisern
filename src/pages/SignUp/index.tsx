@@ -12,8 +12,7 @@ interface Props {
 const SignUp: React.FC<Props> = props => {
   const {navigation} = props;
   return (
-    <View
-      style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <View>
       <Button
         title="Go back to Login screen"
         onPress={(): void => navigation.goBack()}
