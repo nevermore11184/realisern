@@ -45,7 +45,7 @@ const LoginPage: React.FC<Props> = props => {
   });
 
   const onScreenRedirect = (
-    key: 'Login' | 'SignUp' | 'ForgottenPassword',
+    key: 'Login' | 'SignUpNavigator' | 'ForgottenPassword',
   ) => (): void => {
     navigation.navigate(key);
   };
@@ -131,7 +131,7 @@ const LoginPage: React.FC<Props> = props => {
                 {i18n.t('loginFlow.notMember')}
               </Text>
               <Text
-                onPress={onScreenRedirect('SignUp')}
+                onPress={onScreenRedirect('SignUpNavigator')}
                 style={styles.linkText}>
                 {i18n.t('loginFlow.here')}
               </Text>

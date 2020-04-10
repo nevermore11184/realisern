@@ -29,4 +29,13 @@ export default {
       buttonContentGoogle: 'Login with Google',
     },
   },
+  signUpFlow: {
+    homePage: {
+      title: 'SIGN UP',
+      iconsTitle: {
+        teacher: 'I am a teacher',
+        school: 'I am a school',
+      },
+    },
+  },
 };

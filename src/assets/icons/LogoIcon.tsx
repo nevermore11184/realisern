@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {SvgXml} from 'react-native-svg';
+import {SvgCss} from 'react-native-svg';
 
 const xml = `
   <svg width="180" height="90" viewBox="0 0 239 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -14,8 +14,13 @@ const xml = `
 </svg>
 `;
 
-export default () => (
+interface Props {
+  width?: number;
+  height?: number;
+}
+
+export default ({width, height}: Props) => (
   <View>
-    <SvgXml xml={xml} />
+    <SvgCss xml={xml} width={width || 180} height={height || 90} />
   </View>
 );
