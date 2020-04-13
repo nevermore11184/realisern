@@ -9,7 +9,8 @@ interface Props {
   bottomBarIncluded: boolean;
 }
 
-const Wrapper: React.FC<Props> = ({children, bottomBarIncluded}) => {
+const Wrapper: React.FC<Props> = props => {
+  const {children, bottomBarIncluded} = props;
   return (
     <ImageBackground style={styles.wrapper} source={assets.background}>
       <View style={styles.scrollViewWrapper}>
