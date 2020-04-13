@@ -15,8 +15,6 @@ export const styles = StyleSheet.create({
     borderTopColor: loginColors.white,
     height: '30%',
     width: '100%',
-    // top: '115%',
-    // position: 'absolute',
   },
   logoWrapper: {
     alignItems: 'center',
