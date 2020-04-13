@@ -37,5 +37,12 @@ export default {
         school: 'I am a school',
       },
     },
+    teacherFlow: {
+      firstScreen: {
+        welcome: 'Welcome',
+        pageContent:
+          'We need some information from you to create your account. You can always edit or add additional information in the future!',
+      },
+    },
   },
 };
