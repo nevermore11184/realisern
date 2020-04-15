@@ -23,7 +23,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     position: 'relative',
-    height: '77%',
     width: '100%',
     paddingLeft: '16%',
   },

@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     padding: '6%',
+    marginBottom: '10%',
   },
   input: {
     backgroundColor: loginColors.basicTransparentWhite,

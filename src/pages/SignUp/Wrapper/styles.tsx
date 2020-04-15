@@ -15,10 +15,14 @@ export const styles = StyleSheet.create({
     borderTopColor: loginColors.white,
     height: '100%',
     width: '100%',
-    display: 'flex',
+    flexDirection: 'row',
+  },
+  bottomNavigationTextWrapper: {
+    width: '100%',
+    paddingTop: '5%',
+    paddingBottom: '5%',
     flexDirection: 'row',
     justifyContent: 'center',
-    padding: '5%',
   },
   bottomNavigationText: {
     fontSize: 25,

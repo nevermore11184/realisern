@@ -30,7 +30,9 @@ const Wrapper: React.FC<Props> = props => {
           {bottomBarIncluded && (
             <View style={styles.bottomNavigation}>
               <TouchableWithoutFeedback onPress={navigatorFunction}>
-                <Text style={styles.bottomNavigationText}>I'm ready ></Text>
+                <View style={styles.bottomNavigationTextWrapper}>
+                  <Text style={styles.bottomNavigationText}>I'm ready ></Text>
+                </View>
               </TouchableWithoutFeedback>
             </View>
           )}
