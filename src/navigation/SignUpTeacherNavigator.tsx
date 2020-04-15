@@ -6,6 +6,7 @@ import {
 import {RootStackParamsList} from './RootNavigation';
 import {Dimensions} from 'react-native';
 import GreetingsScreen from '../pages/SignUp/flow/Teacher/GreetingsScreen';
+import CredentialsFormScreen from '../pages/SignUp/flow/Teacher/CredentialsFormScreen';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -36,6 +37,10 @@ const SignUpTeacherNavigator: React.FC<Props> = () => {
       <StackNavigator.Screen
         name="GreetingsScreen"
         component={GreetingsScreen}
+      />
+      <StackNavigator.Screen
+        name="CredentialsFormScreen"
+        component={CredentialsFormScreen}
       />
     </StackNavigator.Navigator>
   );

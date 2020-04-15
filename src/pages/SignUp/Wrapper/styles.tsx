@@ -13,14 +13,24 @@ export const styles = StyleSheet.create({
   bottomNavigation: {
     borderTopWidth: 1,
     borderTopColor: loginColors.white,
-    height: '30%',
+    height: '100%',
     width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: '5%',
+  },
+  bottomNavigationText: {
+    fontSize: 25,
+    color: loginColors.white,
   },
   logoWrapper: {
     alignItems: 'center',
     width: '100%',
+    marginTop: '10%',
   },
   scrollViewWrapper: {
     height: '100%',
+    flex: 1,
   },
 });

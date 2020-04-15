@@ -2,6 +2,9 @@ import {StyleSheet} from 'react-native';
 import {loginColors} from '../../pages/Login/constants';
 
 export const styles = StyleSheet.create({
+  wrapper: {
+    width: '100%',
+  },
   container: {
     borderRadius: 3,
     height: 60,
@@ -25,5 +28,11 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: 27,
     zIndex: 1,
+  },
+  label: {
+    color: loginColors.white,
+    fontSize: 25,
+    fontWeight: '700',
+    marginBottom: 4,
   },
 });

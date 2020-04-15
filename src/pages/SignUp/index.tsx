@@ -1,6 +1,12 @@
 import React from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {View, Text, TouchableWithoutFeedback, Platform} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Platform,
+  SafeAreaView,
+} from 'react-native';
 import {RootStackParamsList} from '../../navigation/RootNavigation';
 import {styles} from './styles';
 import i18n from '../../config/locales/customisation';
@@ -32,16 +38,12 @@ const SignUp: React.FC<Props> = props => {
             paddingTop: Platform.OS === 'ios' ? '35%' : '20%',
           }}>
           <TouchableWithoutFeedback onPress={onNavigateToFlow('SignUpTeacher')}>
-            <View
-              style={{
-                ...styles.iconWrapper,
-                marginBottom: Platform.OS === 'ios' ? '35%' : '25%',
-              }}>
+            <SafeAreaView style={styles.iconWrapper}>
               <TeacherIcon />
               <Text style={styles.iconText}>
                 {i18n.t('signUpFlow.homePage.iconsTitle.teacher')}
               </Text>
-            </View>
+            </SafeAreaView>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback onPress={onNavigateToFlow('SignUpSchool')}>
             <View style={styles.iconWrapper}>

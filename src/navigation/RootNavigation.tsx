@@ -2,16 +2,10 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {Dimensions} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  createStackNavigator,
-  StackNavigationProp,
-} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import LoginPage from '../pages/Login';
 import ForgottenPasswordNavigator from './ForgottenPasswordNavigation';
 import SignUpNavigator from './SignUpNavigator';
-import EmailConfirmation from '../pages/ForgottenPassword/flow/EmailConfirmation';
-import ResetPassword from '../pages/ForgottenPassword/flow/ResetPassword';
-import ResetPasswordFinalScreen from '../pages/ForgottenPassword/flow/ResetPasswordFinalScreen';
 
 import {setHeaderOptions} from './utils';
 
@@ -20,13 +14,14 @@ export type RootStackParamsList = {
   SignUp: undefined;
   ForgottenPassword: {screen: string};
   SignUpHome: undefined;
-  SignUpTeacher: undefined;
+  SignUpTeacher: {screen: string};
   SignUpSchool: undefined;
   SignUpNavigator: {screen: string};
   EmailConfirmation: undefined;
   ResetPassword: undefined;
   ResetPasswordFinalScreen: undefined;
-  GreetingsScreen: undefined,
+  GreetingsScreen: undefined;
+  CredentialsFormScreen: undefined;
 };
 
 const StackNavigator = createStackNavigator<RootStackParamsList>();

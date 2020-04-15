@@ -8,12 +8,13 @@ interface Props {
   title: string;
   disabled?: boolean;
   additionalStyles?: object;
+  additionalWrapperStyles?: object;
 }
 
 const StandardButton = (props: Props) => {
-  const {onPress, title, additionalStyles} = props;
+  const {onPress, title, additionalStyles, additionalWrapperStyles} = props;
   return (
-    <View style={styles.standardButtonWrapper}>
+    <View style={{...styles.standardButtonWrapper, ...additionalWrapperStyles}}>
       <Button
         titleStyle={styles.loginTitle}
         buttonStyle={{...styles.loginButton, ...additionalStyles}}

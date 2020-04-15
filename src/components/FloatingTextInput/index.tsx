@@ -4,6 +4,7 @@ import {
   TextInput,
   View,
   TouchableWithoutFeedback,
+  Text,
 } from 'react-native';
 import toUpperFirst from 'lodash/upperFirst';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -22,6 +23,8 @@ interface FloatingTextInput {
   keyboardType?: () => void;
   otherTextInputProps?: any;
   secureTextEntry?: boolean;
+  wrapperStyles?: object;
+  label?: string;
 }
 
 const FloatingTextInputField = (props: FloatingTextInput) => {
@@ -36,6 +39,8 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
     otherTextInputProps,
     secureTextEntry,
     name,
+    label,
+    wrapperStyles,
   } = props;
   const [position] = useState(new Animated.Value(value ? 1 : 0));
   const [isFieldActive, setFieldActive] = useState(false);
@@ -75,50 +80,53 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
   const {checkIcon, closeCircle} = loginColors;
 
   return (
-    <TouchableWithoutFeedback onPress={handleFocus}>
-      <View style={styles.container}>
-        <Animated.Text
-          onPress={handleFocus}
-          style={[
-            // eslint-disable-next-line react-native/no-inline-styles
-            {...styles.titleStyles, zIndex: isFieldActive ? 1 : 0},
-            returnAnimatedTitleStyles(),
-          ]}>
-          {isFieldActive ? toUpperFirst(title) : title}
-        </Animated.Text>
-        {displayValidationIcon && (
-          <Icon
-            size={15}
-            style={{
-              ...styles.validationIcon,
-              color: validateEmail(value, loginExpression)
-                ? checkIcon
-                : closeCircle,
-            }}
-            name={
-              validateEmail(value, loginExpression)
-                ? 'checkcircle'
-                : 'closecircle'
-            }
+    <View style={{...styles.wrapper, ...wrapperStyles}}>
+      {label && <Text style={styles.label}>{label}</Text>}
+      <TouchableWithoutFeedback onPress={handleFocus}>
+        <View style={styles.container}>
+          <Animated.Text
+            onPress={handleFocus}
+            style={[
+              // eslint-disable-next-line react-native/no-inline-styles
+              {...styles.titleStyles, zIndex: isFieldActive ? 1 : 0},
+              returnAnimatedTitleStyles(),
+            ]}>
+            {isFieldActive ? toUpperFirst(title) : title}
+          </Animated.Text>
+          {displayValidationIcon && (
+            <Icon
+              size={15}
+              style={{
+                ...styles.validationIcon,
+                color: validateEmail(value, loginExpression)
+                  ? checkIcon
+                  : closeCircle,
+              }}
+              name={
+                validateEmail(value, loginExpression)
+                  ? 'checkcircle'
+                  : 'closecircle'
+              }
+            />
+          )}
+          <TextInput
+            value={value}
+            name={name}
+            secureTextEntry={secureTextEntry}
+            style={[
+              inputStyles,
+              dynamicInputStyles && dynamicInputStyles(isFieldActive),
+            ]}
+            underlineColorAndroid="transparent"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChangeText={onChangeText}
+            keyboardType={keyboardType}
+            {...otherTextInputProps}
           />
-        )}
-        <TextInput
-          value={value}
-          name={name}
-          secureTextEntry={secureTextEntry}
-          style={[
-            inputStyles,
-            dynamicInputStyles && dynamicInputStyles(isFieldActive),
-          ]}
-          underlineColorAndroid="transparent"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChangeText={onChangeText}
-          keyboardType={keyboardType}
-          {...otherTextInputProps}
-        />
-      </View>
-    </TouchableWithoutFeedback>
+        </View>
+      </TouchableWithoutFeedback>
+    </View>
   );
 };
 
