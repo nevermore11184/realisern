@@ -33,7 +33,6 @@ export const styles = StyleSheet.create({
     height: 65,
   },
   standardButtonWrapper: {
-    width: '25%',
-    marginTop: '8%',
+    width: '30%',
   },
 });

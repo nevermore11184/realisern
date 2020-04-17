@@ -21,7 +21,7 @@ const Wrapper: React.FC<Props> = props => {
   const {children, bottomBarIncluded, navigatorFunction} = props;
   return (
     <ImageBackground style={styles.wrapper} source={assets.background}>
-      <SafeAreaView style={styles.scrollViewWrapper}>
+      <View style={styles.scrollViewWrapper}>
         <ScrollView style={styles.container}>
           <View style={styles.logoWrapper}>
             <LogoIcon width={130} height={60} />
@@ -37,7 +37,7 @@ const Wrapper: React.FC<Props> = props => {
             </View>
           )}
         </ScrollView>
-      </SafeAreaView>
+      </View>
     </ImageBackground>
   );
 };

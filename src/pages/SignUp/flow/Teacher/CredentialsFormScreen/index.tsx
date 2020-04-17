@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {Platform, View} from 'react-native';
 import Wrapper from '../../../Wrapper';
 import ProgressBar from '../components/ProgressBar';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -41,7 +41,7 @@ const CredentialsFormScreen: React.FC<Props> = () => {
                 title={input.title}
                 inputStyles={styles.input}
                 wrapperStyles={{
-                  width: input.name === 'mobile' ? '70%' : '100%',
+                  width: input.name === 'mobile' ? '63%' : '100%',
                 }}
                 onChangeText={onChangeText(input.name)}
                 name={input.name}
@@ -49,7 +49,10 @@ const CredentialsFormScreen: React.FC<Props> = () => {
               />
               {input.name === 'mobile' && (
                 <StandardButton
-                  additionalWrapperStyles={{...styles.standardButtonWrapper}}
+                  additionalWrapperStyles={{
+                    ...styles.standardButtonWrapper,
+                    marginTop: Platform.OS === 'ios' ? '7%' : '8%',
+                  }}
                   additionalStyles={{...styles.standardButton}}
                   onPress={() => 'test'}
                   title={'Verify'}
