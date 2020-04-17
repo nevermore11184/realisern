@@ -22,6 +22,7 @@ export type RootStackParamsList = {
   ResetPasswordFinalScreen: undefined;
   GreetingsScreen: undefined;
   CredentialsFormScreen: undefined;
+  AddressFormScreen: undefined;
 };
 
 const StackNavigator = createStackNavigator<RootStackParamsList>();

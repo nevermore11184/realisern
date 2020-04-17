@@ -30,7 +30,9 @@ const CredentialsFormScreen: React.FC<Props> = () => {
     }));
   };
   return (
-    <Wrapper bottomBarIncluded>
+    <Wrapper
+      multi={{value: true, buttons: {left: '< back', right: 'next >'}}}
+      bottomBarIncluded>
       <View style={styles.credentialsFormWrapper}>
         <ProgressBar progress={25} />
         <View style={styles.formWrapper}>

@@ -23,7 +23,10 @@ const GreetingsScreen: React.FC<Props> = props => {
     navigation.navigate('SignUpTeacher', {screen: 'CredentialsFormScreen'});
   };
   return (
-    <Wrapper navigatorFunction={bottomNavigatorFunction} bottomBarIncluded>
+    <Wrapper
+      bottomBarText="I'am ready >"
+      navigatorFunction={bottomNavigatorFunction}
+      bottomBarIncluded>
       <View style={styles.greetingsScreenWrapper}>
         <Text style={styles.title}>
           {i18n.t('signUpFlow.teacherFlow.firstScreen.welcome')}

@@ -13,16 +13,15 @@ export const styles = StyleSheet.create({
   bottomNavigation: {
     borderTopWidth: 1,
     borderTopColor: loginColors.white,
-    height: '100%',
-    width: '100%',
-    flexDirection: 'row',
+    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   bottomNavigationTextWrapper: {
-    width: '100%',
-    paddingTop: '5%',
-    paddingBottom: '5%',
     flexDirection: 'row',
-    justifyContent: 'center',
+    width: '100%',
+    paddingLeft: '16%',
+    paddingRight: '16%',
   },
   bottomNavigationText: {
     fontSize: 25,

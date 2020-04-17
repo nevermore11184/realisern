@@ -4,7 +4,6 @@ import {
   ImageBackground,
   Text,
   ScrollView,
-  SafeAreaView,
   TouchableWithoutFeedback,
 } from 'react-native';
 import assets from '../../../assets/images';
@@ -14,11 +13,27 @@ import LogoIcon from '../../../assets/icons/LogoIcon';
 interface Props {
   children: ReactNode;
   bottomBarIncluded: boolean;
+  bottomBarText?: string;
+  multi?: {value: boolean; buttons: {left: string; right: string}};
   navigatorFunction?: () => void;
 }
 
 const Wrapper: React.FC<Props> = props => {
-  const {children, bottomBarIncluded, navigatorFunction} = props;
+  const {
+    children,
+    bottomBarIncluded,
+    navigatorFunction,
+    bottomBarText,
+    multi,
+  } = props;
+  const bottomBarContent = multi ? (
+    <React.Fragment>
+      <Text style={styles.bottomNavigationText}>{multi.buttons.left}</Text>
+      <Text style={styles.bottomNavigationText}>{multi.buttons.right}</Text>
+    </React.Fragment>
+  ) : (
+    <Text style={styles.bottomNavigationText}>{bottomBarText}</Text>
+  );
   return (
     <ImageBackground style={styles.wrapper} source={assets.background}>
       <View style={styles.scrollViewWrapper}>
@@ -30,8 +45,12 @@ const Wrapper: React.FC<Props> = props => {
           {bottomBarIncluded && (
             <View style={styles.bottomNavigation}>
               <TouchableWithoutFeedback onPress={navigatorFunction}>
-                <View style={styles.bottomNavigationTextWrapper}>
-                  <Text style={styles.bottomNavigationText}>I'm ready ></Text>
+                <View
+                  style={{
+                    ...styles.bottomNavigationTextWrapper,
+                    justifyContent: multi?.value ? 'space-between' : 'center',
+                  }}>
+                  {bottomBarContent}
                 </View>
               </TouchableWithoutFeedback>
             </View>
