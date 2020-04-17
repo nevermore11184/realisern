@@ -24,7 +24,7 @@ const Wrapper: React.FC<Props> = props => {
     bottomBarIncluded,
     navigatorFunction,
     bottomBarText,
-    multi,
+    multi = {value: false, buttons: {left: '< back', right: 'next >'}},
   } = props;
   const bottomBarContent = multi ? (
     <React.Fragment>
@@ -48,7 +48,7 @@ const Wrapper: React.FC<Props> = props => {
                 <View
                   style={{
                     ...styles.bottomNavigationTextWrapper,
-                    justifyContent: multi?.value ? 'space-between' : 'center',
+                    justifyContent: multi.value ? 'space-between' : 'center',
                   }}>
                   {bottomBarContent}
                 </View>
@@ -59,6 +59,10 @@ const Wrapper: React.FC<Props> = props => {
       </View>
     </ImageBackground>
   );
+};
+
+Wrapper.defaultProps = {
+  multi: {value: false, buttons: {left: '< back', right: 'next >'}},
 };
 
 export default Wrapper;
