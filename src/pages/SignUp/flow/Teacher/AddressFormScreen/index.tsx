@@ -15,9 +15,7 @@ interface Props {
 
 const AddressFormScreen: React.FC<Props> = () => {
   return (
-    <Wrapper
-      multi={{value: true, buttons: {left: '< back', right: 'next >'}}}
-      bottomBarIncluded>
+    <Wrapper multi bottomBarIncluded>
       <View>
         <Text>test</Text>
       </View>

@@ -19,7 +19,8 @@ interface Props {
   navigation: NavigationScreenProp;
 }
 
-const CredentialsFormScreen: React.FC<Props> = () => {
+const CredentialsFormScreen: React.FC<Props> = props => {
+  const {navigation} = props;
   const [localState, setLocalState] = useState({
     firstName: '',
   });
@@ -29,10 +30,19 @@ const CredentialsFormScreen: React.FC<Props> = () => {
       [fieldName]: text,
     }));
   };
+  const leftButtonFunction = () => {
+    navigation.goBack();
+  };
+  const rightButtonFunction = () => {
+    navigation.navigate('SignUpTeacher', {screen: 'AddressFormScreen'});
+  };
   return (
     <Wrapper
-      multi={{value: true, buttons: {left: '< back', right: 'next >'}}}
-      bottomBarIncluded>
+      bottomBarContent={{leftButton: '< back', rightButton: 'next >'}}
+      multi
+      bottomBarIncluded
+      leftButtonFunction={leftButtonFunction}
+      rightButtonFunction={rightButtonFunction}>
       <View style={styles.credentialsFormWrapper}>
         <ProgressBar progress={25} />
         <View style={styles.formWrapper}>

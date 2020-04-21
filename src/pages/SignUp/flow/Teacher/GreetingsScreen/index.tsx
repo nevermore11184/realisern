@@ -25,6 +25,7 @@ const GreetingsScreen: React.FC<Props> = props => {
   return (
     <Wrapper
       bottomBarText="I'am ready >"
+      multi={false}
       navigatorFunction={bottomNavigatorFunction}
       bottomBarIncluded>
       <View style={styles.greetingsScreenWrapper}>

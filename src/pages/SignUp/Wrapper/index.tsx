@@ -14,8 +14,11 @@ interface Props {
   children: ReactNode;
   bottomBarIncluded: boolean;
   bottomBarText?: string;
-  multi?: {value: boolean; buttons: {left: string; right: string}};
+  multi: boolean;
   navigatorFunction?: () => void;
+  bottomBarContent?: {leftButton: string; rightButton: string};
+  leftButtonFunction?: () => void;
+  rightButtonFunction?: () => void;
 }
 
 const Wrapper: React.FC<Props> = props => {
@@ -24,16 +27,11 @@ const Wrapper: React.FC<Props> = props => {
     bottomBarIncluded,
     navigatorFunction,
     bottomBarText,
-    multi = {value: false, buttons: {left: '< back', right: 'next >'}},
+    multi,
+    bottomBarContent = {rightButton: 'none', leftButton: 'none'},
+    leftButtonFunction,
+    rightButtonFunction,
   } = props;
-  const bottomBarContent = multi ? (
-    <React.Fragment>
-      <Text style={styles.bottomNavigationText}>{multi.buttons.left}</Text>
-      <Text style={styles.bottomNavigationText}>{multi.buttons.right}</Text>
-    </React.Fragment>
-  ) : (
-    <Text style={styles.bottomNavigationText}>{bottomBarText}</Text>
-  );
   return (
     <ImageBackground style={styles.wrapper} source={assets.background}>
       <View style={styles.scrollViewWrapper}>
@@ -48,9 +46,26 @@ const Wrapper: React.FC<Props> = props => {
                 <View
                   style={{
                     ...styles.bottomNavigationTextWrapper,
-                    justifyContent: multi.value ? 'space-between' : 'center',
+                    justifyContent: multi ? 'space-between' : 'center',
                   }}>
-                  {bottomBarContent}
+                  {multi ? (
+                    <React.Fragment>
+                      <TouchableWithoutFeedback onPress={leftButtonFunction}>
+                        <Text style={styles.bottomNavigationText}>
+                          {bottomBarContent.leftButton}
+                        </Text>
+                      </TouchableWithoutFeedback>
+                      <TouchableWithoutFeedback onPress={rightButtonFunction}>
+                        <Text style={styles.bottomNavigationText}>
+                          {bottomBarContent.rightButton}
+                        </Text>
+                      </TouchableWithoutFeedback>
+                    </React.Fragment>
+                  ) : (
+                    <Text style={styles.bottomNavigationText}>
+                      {bottomBarText}
+                    </Text>
+                  )}
                 </View>
               </TouchableWithoutFeedback>
             </View>
@@ -59,10 +74,6 @@ const Wrapper: React.FC<Props> = props => {
       </View>
     </ImageBackground>
   );
-};
-
-Wrapper.defaultProps = {
-  multi: {value: false, buttons: {left: '< back', right: 'next >'}},
 };
 
 export default Wrapper;
