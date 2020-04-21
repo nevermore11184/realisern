@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import Wrapper from '../../../Wrapper';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../../../../navigation/RootNavigation';
+import ProgressBar from '../components/ProgressBar';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -16,6 +17,7 @@ interface Props {
 const AddressFormScreen: React.FC<Props> = () => {
   return (
     <Wrapper multi bottomBarIncluded>
+      <ProgressBar progress={50} />
       <View>
         <Text>test</Text>
       </View>
