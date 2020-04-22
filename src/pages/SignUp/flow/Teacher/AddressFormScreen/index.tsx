@@ -10,6 +10,9 @@ import i18n from '../../../../../config/locales/customisation';
 import {radioButtons} from './constants';
 import RadioButton from '../../../../../components/RadioButton';
 import FloatingTextInputField from '../../../../../components/FloatingTextInput';
+import RNPickerSelect from 'react-native-picker-select';
+import {loginColors} from '../../../../Login/constants';
+import SelectArrowDown from '../../../../../assets/icons/SelectArrowDown';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -70,6 +73,31 @@ const AddressFormScreen: React.FC<Props> = () => {
             <Text style={styles.postCodeText}>
               {i18n.t('signUpFlow.teacherFlow.thirdScreen.postCodeText')}
             </Text>
+          </View>
+          <View style={styles.selectWrapper}>
+            <RNPickerSelect
+              style={{
+                inputIOS: {
+                  backgroundColor: loginColors.basicTransparentWhite,
+                  height: 50,
+                  borderRadius: 4,
+                },
+                inputAndroid: {
+                  backgroundColor: loginColors.basicTransparentWhite,
+                  height: 50,
+                  borderRadius: 3,
+                },
+              }}
+              onValueChange={value => console.log(value)}
+              items={[
+                {label: 'Football', value: 'football'},
+                {label: 'Baseball', value: 'baseball'},
+                {label: 'Hockey', value: 'hockey'},
+              ]}
+              placeholder={{}}
+              value={{}}
+            />
+            <SelectArrowDown />
           </View>
         </View>
       </View>
