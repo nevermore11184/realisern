@@ -43,6 +43,10 @@ export default {
         pageContent:
           'We need some information from you to create your account. You can always edit or add additional information in the future!',
       },
+      thirdScreen: {
+        pageTitle: 'Are you looking for supply work?',
+        postCodeText: 'find address',
+      },
     },
   },
 };
