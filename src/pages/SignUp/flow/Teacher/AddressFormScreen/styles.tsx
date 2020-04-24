@@ -9,7 +9,12 @@ export const styles = StyleSheet.create({
   },
   formWrapper: {},
   addressWrapper: {
-    paddingTop: '6%',
+    paddingTop: '4%',
+  },
+  extraInputsWrapper: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   pageTitle: {
     fontSize: 23,
@@ -38,7 +43,7 @@ export const styles = StyleSheet.create({
   },
   addressInputWrapper: {
     width: '100%',
-    marginBottom: '7%',
+    marginBottom: '6%',
   },
   postCodeText: {
     color: loginColors.white,
@@ -70,5 +75,8 @@ export const styles = StyleSheet.create({
     backgroundColor: loginColors.basicTransparentWhite,
     height: 50,
     borderRadius: 6,
+  },
+  additionalInputWrapper: {
+    width: '45%',
   },
 });

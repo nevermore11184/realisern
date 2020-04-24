@@ -27,6 +27,10 @@ const AddressFormScreen: React.FC<Props> = () => {
 
   const [localState, setLocalState] = useState({
     postCode: '',
+    firstAddressLine: '',
+    secondAddressLine: '',
+    city: '',
+    country: '',
   });
 
   const onSetRadio = (value: string) => () => setRadioValue(value);
@@ -92,23 +96,43 @@ const AddressFormScreen: React.FC<Props> = () => {
         </View>
         <View style={styles.addressWrapper}>
           <FloatingTextInputField
-            value={localState.postCode}
+            value={localState.firstAddressLine}
             title={'address line 1'}
             inputStyles={styles.input}
             wrapperStyles={styles.addressInputWrapper}
-            onChangeText={onSetLocalState('postCode')}
+            onChangeText={onSetLocalState('firstAddressLine')}
             name={'firstAddressLine'}
             label={'Address line 1'}
           />
           <FloatingTextInputField
-            value={localState.postCode}
+            value={localState.secondAddressLine}
             title={'address line 2'}
             inputStyles={styles.input}
             wrapperStyles={styles.addressInputWrapper}
-            onChangeText={onSetLocalState('postCode')}
-            name={'firstAddressLine'}
+            onChangeText={onSetLocalState('secondAddressLine')}
+            name={'secondAddressLine'}
             label={'Address line 2'}
           />
+          <View style={styles.extraInputsWrapper}>
+            <FloatingTextInputField
+              value={localState.city}
+              title={'city'}
+              inputStyles={styles.input}
+              wrapperStyles={styles.additionalInputWrapper}
+              onChangeText={onSetLocalState('city')}
+              name={'city'}
+              label={'City'}
+            />
+            <FloatingTextInputField
+              value={localState.country}
+              title={'country'}
+              inputStyles={styles.input}
+              wrapperStyles={styles.additionalInputWrapper}
+              onChangeText={onSetLocalState('country')}
+              name={'country'}
+              label={'Country'}
+            />
+          </View>
         </View>
       </View>
     </Wrapper>
