@@ -8,6 +8,9 @@ export const styles = StyleSheet.create({
     paddingRight: '5%',
   },
   formWrapper: {},
+  addressWrapper: {
+    paddingTop: '6%',
+  },
   pageTitle: {
     fontSize: 23,
     color: loginColors.white,
@@ -30,8 +33,12 @@ export const styles = StyleSheet.create({
     paddingTop: 32,
     width: '100%',
   },
-  inputWrapperStyles: {
+  postCodeInputWrapper: {
     width: '60%',
+  },
+  addressInputWrapper: {
+    width: '100%',
+    marginBottom: '7%',
   },
   postCodeText: {
     color: loginColors.white,
@@ -40,12 +47,28 @@ export const styles = StyleSheet.create({
     marginLeft: '6%',
     marginTop: '6%',
   },
+  selectAuxiliaryText: {
+    color: loginColors.white,
+    fontSize: 20,
+    alignSelf: 'flex-start',
+  },
   postCodeWrapper: {
     width: '100%',
     flexDirection: 'row',
   },
   selectWrapper: {
-    marginBottom: '10%',
+    marginBottom: '6%',
     position: 'relative',
+  },
+  selectInputIOS: {
+    backgroundColor: loginColors.basicTransparentWhite,
+    height: 50,
+    borderRadius: 3,
+    paddingLeft: '4%',
+  },
+  selectInputAndroid: {
+    backgroundColor: loginColors.basicTransparentWhite,
+    height: 50,
+    borderRadius: 6,
   },
 });

@@ -46,6 +46,7 @@ export default {
       thirdScreen: {
         pageTitle: 'Are you looking for supply work?',
         postCodeText: 'find address',
+        cantFind: "can't find? add manually",
       },
     },
   },

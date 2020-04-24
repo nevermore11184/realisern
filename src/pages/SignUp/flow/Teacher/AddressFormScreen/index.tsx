@@ -11,7 +11,6 @@ import {radioButtons} from './constants';
 import RadioButton from '../../../../../components/RadioButton';
 import FloatingTextInputField from '../../../../../components/FloatingTextInput';
 import RNPickerSelect from 'react-native-picker-select';
-import {loginColors} from '../../../../Login/constants';
 import SelectArrowDown from '../../../../../assets/icons/SelectArrowDown';
 
 type NavigationScreenProp = StackNavigationProp<
@@ -65,7 +64,7 @@ const AddressFormScreen: React.FC<Props> = () => {
               value={localState.postCode}
               title={'postcode'}
               inputStyles={styles.input}
-              wrapperStyles={styles.inputWrapperStyles}
+              wrapperStyles={styles.postCodeInputWrapper}
               onChangeText={onSetLocalState('postCode')}
               name={'postcode'}
               label={'Postcode'}
@@ -77,28 +76,39 @@ const AddressFormScreen: React.FC<Props> = () => {
           <View style={styles.selectWrapper}>
             <RNPickerSelect
               style={{
-                inputIOS: {
-                  backgroundColor: loginColors.basicTransparentWhite,
-                  height: 50,
-                  borderRadius: 4,
-                },
-                inputAndroid: {
-                  backgroundColor: loginColors.basicTransparentWhite,
-                  height: 50,
-                  borderRadius: 3,
-                },
+                inputIOS: styles.selectInputIOS,
+                inputAndroid: styles.selectInputAndroid,
               }}
               onValueChange={value => console.log(value)}
-              items={[
-                {label: 'Football', value: 'football'},
-                {label: 'Baseball', value: 'baseball'},
-                {label: 'Hockey', value: 'hockey'},
-              ]}
+              items={[]}
               placeholder={{}}
               value={{}}
             />
             <SelectArrowDown />
           </View>
+          <Text style={styles.selectAuxiliaryText}>
+            {i18n.t('signUpFlow.teacherFlow.thirdScreen.cantFind')}
+          </Text>
+        </View>
+        <View style={styles.addressWrapper}>
+          <FloatingTextInputField
+            value={localState.postCode}
+            title={'address line 1'}
+            inputStyles={styles.input}
+            wrapperStyles={styles.addressInputWrapper}
+            onChangeText={onSetLocalState('postCode')}
+            name={'firstAddressLine'}
+            label={'Address line 1'}
+          />
+          <FloatingTextInputField
+            value={localState.postCode}
+            title={'address line 2'}
+            inputStyles={styles.input}
+            wrapperStyles={styles.addressInputWrapper}
+            onChangeText={onSetLocalState('postCode')}
+            name={'firstAddressLine'}
+            label={'Address line 2'}
+          />
         </View>
       </View>
     </Wrapper>
