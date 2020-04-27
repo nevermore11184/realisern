@@ -4,7 +4,6 @@ import {loginColors} from '../../Login/constants';
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '100%',
   },
   wrapper: {
     height: '100%',
@@ -14,6 +13,8 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: loginColors.white,
     height: 100,
+    maxHeight: 100,
+    minHeight: 100,
     alignItems: 'center',
     justifyContent: 'center',
   },

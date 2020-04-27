@@ -22,7 +22,7 @@ interface Props {
   navigation: NavigationScreenProp;
 }
 
-const AddressFormScreen: React.FC<Props> = () => {
+const AddressFormScreen: React.FC<Props> = ({navigation}) => {
   const [radioValue, setRadioValue] = useState('no');
 
   const [localState, setLocalState] = useState({
@@ -32,6 +32,13 @@ const AddressFormScreen: React.FC<Props> = () => {
     city: '',
     country: '',
   });
+
+  const leftButtonFunction = () => {
+    navigation.goBack();
+  };
+  const rightButtonFunction = () => {
+    navigation.navigate('SignUpTeacher', {screen: 'IntermediaryInfoScreen'});
+  };
 
   const onSetRadio = (value: string) => () => setRadioValue(value);
 
@@ -45,7 +52,9 @@ const AddressFormScreen: React.FC<Props> = () => {
     <Wrapper
       bottomBarContent={{leftButton: '< back', rightButton: 'next >'}}
       multi
-      bottomBarIncluded>
+      bottomBarIncluded
+      leftButtonFunction={leftButtonFunction}
+      rightButtonFunction={rightButtonFunction}>
       <View style={styles.addressFormContainer}>
         <ProgressBar progress={35} />
         <View style={styles.formWrapper}>

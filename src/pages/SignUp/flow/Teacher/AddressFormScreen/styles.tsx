@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
   formWrapper: {},
   addressWrapper: {
     paddingTop: '4%',
+    paddingBottom: '8%',
   },
   extraInputsWrapper: {
     width: '100%',
@@ -43,7 +44,7 @@ export const styles = StyleSheet.create({
   },
   addressInputWrapper: {
     width: '100%',
-    marginBottom: '6%',
+    marginBottom: '2%',
   },
   postCodeText: {
     color: loginColors.white,

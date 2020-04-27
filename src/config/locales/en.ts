@@ -48,6 +48,10 @@ export default {
         postCodeText: 'find address',
         cantFind: "can't find? add manually",
       },
+      fourthScreen: {
+        title:
+          'Answer the next 5 questions to help us match you with your perfect school',
+      },
     },
   },
 };
