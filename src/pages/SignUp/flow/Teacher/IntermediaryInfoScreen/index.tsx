@@ -17,14 +17,17 @@ interface Props {
   navigation: NavigationScreenProp;
 }
 
-const IntermediaryInfoScreen: React.FC<Props> = () => {
+const IntermediaryInfoScreen: React.FC<Props> = ({navigation}) => {
+  const rightButtonFunction = (): void => {
+    navigation.navigate('SignUpTeacher', {screen: 'Facts'});
+  };
   return (
     <Wrapper
       bottomBarContent={{leftButton: '', rightButton: 'okay >'}}
       multi
       bottomBarIncluded
       leftButtonFunction={() => 'temporarily'}
-      rightButtonFunction={() => 'temporarily'}>
+      rightButtonFunction={rightButtonFunction}>
       <View style={styles.infoScreenContainer}>
         <ProgressBar progress={50} />
         <View style={styles.titleWrapper}>

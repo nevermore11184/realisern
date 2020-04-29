@@ -8,12 +8,13 @@ export const styles = StyleSheet.create({
     paddingTop: '10%',
     paddingLeft: '5%',
     paddingRight: '5%',
-    height: height - height / 4.5,
+    height: height - 250,
   },
   title: {
     color: loginColors.white,
     fontSize: 23,
     fontWeight: '600',
+    lineHeight: 34,
   },
   titleWrapper: {
     paddingTop: '15%',

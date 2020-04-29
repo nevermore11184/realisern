@@ -2,21 +2,18 @@ import {StyleSheet} from 'react-native';
 import {loginColors} from '../../Login/constants';
 
 export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-  },
-  wrapper: {
+  backgroundWrapper: {
     height: '100%',
-    width: '100%',
+  },
+  innerWrapper: {
+    height: '100%',
   },
   bottomNavigation: {
     borderTopWidth: 1,
     borderTopColor: loginColors.white,
-    height: 100,
-    maxHeight: 100,
-    minHeight: 100,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: '3%',
   },
   bottomNavigationTextWrapper: {
     flexDirection: 'row',
@@ -31,10 +28,18 @@ export const styles = StyleSheet.create({
   logoWrapper: {
     alignItems: 'center',
     width: '100%',
-    marginTop: '10%',
+    marginTop: '20%',
+    marginBottom: '5%',
   },
-  scrollViewWrapper: {
-    height: '100%',
-    flex: 1,
+  childrenWrapper: {
+    flexGrow: 1,
+  },
+  bottomNavigationWrapper: {
+    flexGrow: 1,
+    height: 90,
+    borderTopWidth: 1,
+    borderTopColor: loginColors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

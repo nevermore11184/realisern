@@ -24,6 +24,7 @@ export type RootStackParamsList = {
   CredentialsFormScreen: undefined;
   AddressFormScreen: undefined;
   IntermediaryInfoScreen: undefined;
+  Facts: undefined;
 };
 
 const StackNavigator = createStackNavigator<RootStackParamsList>();

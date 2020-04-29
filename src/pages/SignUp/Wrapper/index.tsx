@@ -33,15 +33,17 @@ const Wrapper: React.FC<Props> = props => {
     rightButtonFunction,
   } = props;
   return (
-    <ImageBackground style={styles.wrapper} source={assets.background}>
-      <View style={styles.scrollViewWrapper}>
-        <ScrollView style={styles.container}>
+    <ImageBackground
+      style={styles.backgroundWrapper}
+      source={assets.background}>
+      <View style={styles.innerWrapper}>
+        <ScrollView>
           <View style={styles.logoWrapper}>
             <LogoIcon width={130} height={60} />
           </View>
-          {children}
+          <View style={styles.childrenWrapper}>{children}</View>
           {bottomBarIncluded && (
-            <View style={styles.bottomNavigation}>
+            <View style={styles.bottomNavigationWrapper}>
               <TouchableWithoutFeedback onPress={navigatorFunction}>
                 <View
                   style={{

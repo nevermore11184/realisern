@@ -9,6 +9,7 @@ import GreetingsScreen from '../pages/SignUp/flow/Teacher/GreetingsScreen';
 import CredentialsFormScreen from '../pages/SignUp/flow/Teacher/CredentialsFormScreen';
 import AddressFormScreen from '../pages/SignUp/flow/Teacher/AddressFormScreen';
 import IntermediaryInfoScreen from '../pages/SignUp/flow/Teacher/IntermediaryInfoScreen';
+import Facts from '../pages/SignUp/flow/Teacher/ProfileQuestions/Facts';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -52,6 +53,7 @@ const SignUpTeacherNavigator: React.FC<Props> = () => {
         name="IntermediaryInfoScreen"
         component={IntermediaryInfoScreen}
       />
+      <StackNavigator.Screen name="Facts" component={Facts} />
     </StackNavigator.Navigator>
   );
 };

@@ -30,7 +30,7 @@ const SignUp: React.FC<Props> = props => {
   };
 
   return (
-    <Wrapper bottomBarIncluded={false}>
+    <Wrapper multi={false} bottomBarIncluded={false}>
       <View style={styles.contentWrapper}>
         <Text style={styles.title}>{i18n.t('signUpFlow.homePage.title')}</Text>
         <View
