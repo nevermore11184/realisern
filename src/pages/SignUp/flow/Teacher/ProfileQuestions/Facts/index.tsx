@@ -5,6 +5,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../../../../../navigation/RootNavigation';
 import ProgressBar from '../../components/ProgressBar';
 import Slider from '@react-native-community/slider';
+import ScaleSlider from '../../../../../../components/ScaleSlider';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -26,24 +27,14 @@ const Facts: React.FC<Props> = () => {
       <View>
         <ProgressBar progress={50} />
       </View>
-      <View style={{width: '80%', paddingLeft: '3%', paddingRight: '3%'}}>
-        <Slider
-          style={{width: '100%', height: 40}}
-          minimumValue={0}
-          maximumValue={5}
-          step={1}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
+      <View style={{width: '100%'}}>
+        <ScaleSlider
+          min={1}
+          max={7}
+          LRpadding={40}
+          callback={() => 'test'}
+          single={true}
         />
-        {/*<View style={{width: '100%', flexDirection: 'row'}}>*/}
-        {/*  {[undefined, undefined, undefined, undefined, undefined].map(item => {*/}
-        {/*    return (*/}
-        {/*      <View style={{alignItems: 'flex-end', justifyContent: 'flex-end', width: '20%', height: 15, backgroundColor: 'blue'}}>*/}
-        {/*        <Text>test</Text>*/}
-        {/*      </View>*/}
-        {/*    );*/}
-        {/*  })}*/}
-        {/*</View>*/}
       </View>
     </Wrapper>
   );

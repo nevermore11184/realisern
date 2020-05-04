@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "latest",
+    "@ptomasroos/react-native-multi-slider": "^2.2.2",
     "@react-native-community/google-signin": "^4.0.0",
     "@react-native-community/masked-view": "^0.1.7",
     "@react-native-community/slider": "^2.0.9",
