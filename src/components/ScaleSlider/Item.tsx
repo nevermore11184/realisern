@@ -4,9 +4,7 @@ import {StyleSheet, View, Text} from 'react-native';
 export class Item extends Component {
   render() {
     return (
-      <View>
-        <Text>1</Text>
-      </View>
+      <View style={styles.snap} />
     );
   }
 }
@@ -17,6 +15,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     bottom: 10,
     color: '#5e5e5e',
+  },
+  snap: {
+    width: 13,
+    height: 13,
+    backgroundColor: 'black',
+    borderRadius: 50,
   },
   inactive: {
     flex: 1,

@@ -5,11 +5,7 @@ import images from '../../assets/images';
 export class CustomMarker extends Component {
   render() {
     return (
-      <Image
-        style={styles.image}
-        source={images.background}
-        resizeMode="contain"
-      />
+      <View style={styles.image}/>
     );
   }
 }
@@ -39,7 +35,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 30,
-    height: 30,
+    width: 33,
+    height: 33,
+    borderRadius: 50,
+    backgroundColor: '#DC008E',
   },
 });

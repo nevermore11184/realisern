@@ -20,6 +20,7 @@ class CustomSlider extends Component {
         <View
           style={[
             styles.column,
+
             {
               marginLeft: this.props.LRpadding,
               marginRight: this.props.LRpadding,
@@ -29,8 +30,8 @@ class CustomSlider extends Component {
         </View>
         <View style={styles.container}>
           <MultiSlider
-            trackStyle={{backgroundColor: '#bdc3c7'}}
-            selectedStyle={{backgroundColor: '#5e5e5e'}}
+            trackStyle={{backgroundColor: 'black'}}
+            selectedStyle={{backgroundColor: 'black'}}
             values={
               this.props.single
                 ? [this.state.multiSliderValue[1]]
@@ -40,7 +41,7 @@ class CustomSlider extends Component {
                   ]
             }
             sliderLength={
-              Dimensions.get('window').width - this.props.LRpadding * 2
+              Dimensions.get('window').width - this.props.LRpadding * 2.3
             }
             onValuesChange={this.multiSliderValuesChange}
             min={this.props.min}
@@ -67,6 +68,7 @@ class CustomSlider extends Component {
         second: values[1],
       });
     }
+    console.log(values, 'values')
     //this.props.callback(values)
   };
 
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    bottom: -20,
+    bottom: -31.5,
   },
   active: {
     textAlign: 'center',

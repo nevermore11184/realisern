@@ -30,7 +30,7 @@ const Facts: React.FC<Props> = () => {
       <View style={{width: '100%'}}>
         <ScaleSlider
           min={1}
-          max={7}
+          max={5}
           LRpadding={40}
           callback={() => 'test'}
           single={true}
