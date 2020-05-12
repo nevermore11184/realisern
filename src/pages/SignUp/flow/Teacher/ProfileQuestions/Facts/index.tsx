@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, Text} from 'react-native';
 import Wrapper from '../../../../Wrapper';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../../../../../navigation/RootNavigation';
 import ProgressBar from '../../components/ProgressBar';
-import Slider from '@react-native-community/slider';
 import ScaleSlider from '../../../../../../components/ScaleSlider';
+import {styles} from './styles';
+import i18n from '../../../../../../config/locales/customisation';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -24,17 +25,21 @@ const Facts: React.FC<Props> = () => {
       bottomBarIncluded
       leftButtonFunction={() => 'temporarily'}
       rightButtonFunction={() => 'temporarily'}>
-      <View>
-        <ProgressBar progress={50} />
-      </View>
-      <View style={{width: '100%'}}>
-        <ScaleSlider
-          min={1}
-          max={5}
-          LRpadding={40}
-          callback={() => 'test'}
-          single={true}
-        />
+      <View style={styles.majorWrapper}>
+        <View style={styles.progressBarWrapper}>
+          <ProgressBar progress={75} />
+        </View>
+        <View style={styles.sliderWrapper}>
+          <View style={styles.contentWrapper}>
+            <Text style={styles.title}>
+              {i18n.t('signUpFlow.teacherFlow.facts.contentTitle')}
+            </Text>
+            <Text style={styles.text}>
+              {i18n.t('signUpFlow.teacherFlow.facts.contentText')}
+            </Text>
+          </View>
+          <ScaleSlider min={1} max={5} LRpadding={4} single={true} />
+        </View>
       </View>
     </Wrapper>
   );

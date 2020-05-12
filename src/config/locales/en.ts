@@ -52,6 +52,10 @@ export default {
         title:
           'Answer the next 5 questions to help us match you with your perfect school',
       },
+      facts: {
+        contentTitle: 'Profiling questions',
+        contentText: 'How would you describe what drives you?',
+      },
     },
   },
 };

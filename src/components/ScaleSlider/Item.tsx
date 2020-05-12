@@ -1,36 +1,23 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-export class Item extends Component {
+interface Props {
+  value: number;
+  first: number;
+  second: number;
+}
+
+export class Item extends Component<Props> {
   render() {
-    return (
-      <View style={styles.snap} />
-    );
+    return <View style={styles.snap} />;
   }
 }
 
 const styles = StyleSheet.create({
-  active: {
-    textAlign: 'center',
-    fontSize: 20,
-    bottom: 10,
-    color: '#5e5e5e',
-  },
   snap: {
     width: 13,
     height: 13,
-    backgroundColor: 'black',
+    backgroundColor: '#D8D8D8',
     borderRadius: 50,
-  },
-  inactive: {
-    flex: 1,
-    textAlignVertical: 'center',
-    textAlign: 'center',
-    fontWeight: 'normal',
-    color: '#bdc3c7',
-  },
-  line: {
-    fontSize: 10,
-    textAlign: 'center',
   },
 });

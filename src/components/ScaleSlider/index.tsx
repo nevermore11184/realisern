@@ -1,11 +1,25 @@
+// @ts-nocheck
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
+import {StyleSheet, View, Dimensions} from 'react-native';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import {CustomMarker} from './CustomMarket';
+import {CustomMarker} from './CustomMarker';
 import {Item} from './Item';
 
-class CustomSlider extends Component {
-  constructor(props) {
+interface Props {
+  min: number;
+  max: number;
+  single: boolean;
+  LRpadding: number;
+}
+
+interface State {
+  first: number;
+  second: number;
+  multiSliderValue: number[];
+}
+
+class CustomSlider extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       multiSliderValue: [this.props.min, this.props.max],
@@ -15,37 +29,28 @@ class CustomSlider extends Component {
   }
 
   render() {
+    const {LRpadding, single, min, max} = this.props;
+    const {multiSliderValue} = this.state;
+    const multiSliderValues = single
+      ? [multiSliderValue[1]]
+      : [multiSliderValue[0], multiSliderValue[1]];
+    const sliderLength = Dimensions.get('window').width - LRpadding * 25;
+
     return (
       <View>
         <View
-          style={[
-            styles.column,
-
-            {
-              marginLeft: this.props.LRpadding,
-              marginRight: this.props.LRpadding,
-            },
-          ]}>
+          style={[styles.row, {marginLeft: LRpadding, marginRight: LRpadding}]}>
           {this.renderScale()}
         </View>
         <View style={styles.container}>
           <MultiSlider
-            trackStyle={{backgroundColor: 'black'}}
-            selectedStyle={{backgroundColor: 'black'}}
-            values={
-              this.props.single
-                ? [this.state.multiSliderValue[1]]
-                : [
-                    this.state.multiSliderValue[0],
-                    this.state.multiSliderValue[1],
-                  ]
-            }
-            sliderLength={
-              Dimensions.get('window').width - this.props.LRpadding * 2.3
-            }
+            trackStyle={styles.trackStyle}
+            selectedStyle={styles.trackStyle}
+            values={multiSliderValues}
+            sliderLength={sliderLength}
             onValuesChange={this.multiSliderValuesChange}
-            min={this.props.min}
-            max={this.props.max}
+            min={min}
+            max={max}
             step={1}
             allowOverlap={false}
             customMarker={CustomMarker}
@@ -56,7 +61,7 @@ class CustomSlider extends Component {
     );
   }
 
-  multiSliderValuesChange = values => {
+  multiSliderValuesChange = (values: number[]) => {
     if (this.props.single) {
       this.setState({
         second: values[0],
@@ -68,8 +73,6 @@ class CustomSlider extends Component {
         second: values[1],
       });
     }
-    console.log(values, 'values')
-    //this.props.callback(values)
   };
 
   renderScale = () => {
@@ -88,24 +91,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  column: {
+  row: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
     bottom: -31.5,
+    width: '100%',
   },
-  active: {
-    textAlign: 'center',
-    fontSize: 20,
-    color: '#5e5e5e',
-  },
-  inactive: {
-    textAlign: 'center',
-    fontWeight: 'normal',
-    color: '#bdc3c7',
-  },
-  line: {
-    textAlign: 'center',
+  trackStyle: {
+    backgroundColor: '#D8D8D8',
+    height: 5,
+    width: '100%',
   },
 });
 
