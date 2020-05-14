@@ -14,7 +14,11 @@ export type RootStackParamsList = {
   SignUp: undefined;
   ForgottenPassword: {screen: string};
   SignUpHome: undefined;
-  SignUpTeacher: {screen: string};
+  SignUpTeacher: {
+    screen: string;
+    factsValue?: number;
+    academicalValue?: number;
+  };
   SignUpSchool: undefined;
   SignUpNavigator: {screen: string};
   EmailConfirmation: undefined;
@@ -25,6 +29,7 @@ export type RootStackParamsList = {
   AddressFormScreen: undefined;
   IntermediaryInfoScreen: undefined;
   Facts: undefined;
+  AcademicallyFocused: undefined;
 };
 
 const StackNavigator = createStackNavigator<RootStackParamsList>();

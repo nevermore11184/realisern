@@ -12,19 +12,19 @@ interface Props {
   navigation: NavigationScreenProp;
 }
 
-const Facts: React.FC<Props> = ({navigation}) => {
-  const [factsValue, setFactsValue] = useState(0);
+const AcademicallyFocused: React.FC<Props> = ({navigation}) => {
+  const [academicalValue, setAcademicalValue] = useState(0);
   const sliderFunction = (value: number) => {
-    setFactsValue(value);
+    setAcademicalValue(value);
   };
   const rightButtonFunction = (): void => {
     navigation.navigate('SignUpTeacher', {
       screen: 'AcademicallyFocused',
-      factsValue,
+      academicalValue,
     });
   };
   const leftButtonFunction = (): void => {
-    navigation.navigate('SignUpTeacher', {screen: 'IntermediaryInfoScreen'});
+    navigation.navigate('SignUpTeacher', {screen: 'Facts'});
   };
   return (
     <ProfilingQuestionsWrapper
@@ -39,4 +39,4 @@ const Facts: React.FC<Props> = ({navigation}) => {
   );
 };
 
-export default Facts;
+export default AcademicallyFocused;

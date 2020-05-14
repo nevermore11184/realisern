@@ -10,6 +10,7 @@ interface Props {
   max: number;
   single: boolean;
   LRpadding: number;
+  callBackSliderFunction: (arg: number) => void;
 }
 
 interface State {
@@ -62,10 +63,16 @@ class CustomSlider extends Component<Props, State> {
   }
 
   multiSliderValuesChange = (values: number[]) => {
+    const callBack = () => {
+      this.props.callBackSliderFunction(this.state.second);
+    };
     if (this.props.single) {
-      this.setState({
-        second: values[0],
-      });
+      this.setState(
+        {
+          second: values[0],
+        },
+        callBack,
+      );
     } else {
       this.setState({
         multiSliderValue: values,

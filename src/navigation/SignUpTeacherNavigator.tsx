@@ -54,6 +54,7 @@ const SignUpTeacherNavigator: React.FC<Props> = () => {
         component={IntermediaryInfoScreen}
       />
       <StackNavigator.Screen name="Facts" component={Facts} />
+      <StackNavigator.Screen name="AcademicallyFocused" component={Facts} />
     </StackNavigator.Navigator>
   );
 };
