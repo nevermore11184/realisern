@@ -38,6 +38,11 @@ const Facts: React.FC<Props> = () => {
               {i18n.t('signUpFlow.teacherFlow.facts.contentText')}
             </Text>
           </View>
+          <View style={styles.sliderTitleWrapper}>
+            <Text style={styles.sliderTitle}>
+              {i18n.t('signUpFlow.teacherFlow.facts.sliderTitle')}
+            </Text>
+          </View>
           <ScaleSlider min={1} max={5} LRpadding={4} single={true} />
         </View>
       </View>

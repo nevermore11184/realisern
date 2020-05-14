@@ -55,6 +55,7 @@ export default {
       facts: {
         contentTitle: 'Profiling questions',
         contentText: 'How would you describe what drives you?',
+        sliderTitle: 'Facts',
       },
     },
   },
