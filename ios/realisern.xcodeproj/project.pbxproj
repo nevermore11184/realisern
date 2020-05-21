@@ -13,6 +13,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1742457C2424E5EF00A42CE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1742457B2424E5EF00A42CE6 /* GoogleService-Info.plist */; };
+		17790DFD2476A68B000EBF76 /* GetBundleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17790DFC2476A68B000EBF76 /* GetBundleId.swift */; };
+		17790DFF2476AC66000EBF76 /* GetBundleId.m in Sources */ = {isa = PBXBuildFile; fileRef = 17790DFE2476AC66000EBF76 /* GetBundleId.m */; };
+		17790E032476BEB1000EBF76 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17790E022476BEB1000EBF76 /* Counter.swift */; };
+		17790E052476BF58000EBF76 /* Counter.m in Sources */ = {isa = PBXBuildFile; fileRef = 17790E042476BF58000EBF76 /* Counter.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -54,6 +58,11 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = realisern/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = realisern/main.m; sourceTree = "<group>"; };
 		1742457B2424E5EF00A42CE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		17790DFB2476A68B000EBF76 /* realisern-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "realisern-Bridging-Header.h"; sourceTree = "<group>"; };
+		17790DFC2476A68B000EBF76 /* GetBundleId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBundleId.swift; sourceTree = "<group>"; };
+		17790DFE2476AC66000EBF76 /* GetBundleId.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetBundleId.m; sourceTree = "<group>"; };
+		17790E022476BEB1000EBF76 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		17790E042476BF58000EBF76 /* Counter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Counter.m; sourceTree = "<group>"; };
 		19B8906147164D529A6E58A7 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* realisern-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "realisern-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* realisern-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "realisern-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +201,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				17790E042476BF58000EBF76 /* Counter.m */,
+				17790E022476BEB1000EBF76 /* Counter.swift */,
+				17790DFE2476AC66000EBF76 /* GetBundleId.m */,
+				17790DFC2476A68B000EBF76 /* GetBundleId.swift */,
 				1742457B2424E5EF00A42CE6 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* realisern */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -200,6 +213,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				815F95310C397B5F65A58EC8 /* Pods */,
 				CC2489CB89284AE0B403D5B0 /* Resources */,
+				17790DFB2476A68B000EBF76 /* realisern-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -335,6 +349,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1130;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -648,8 +665,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17790E032476BEB1000EBF76 /* Counter.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				17790DFD2476A68B000EBF76 /* GetBundleId.swift in Sources */,
+				17790E052476BF58000EBF76 /* Counter.m in Sources */,
+				17790DFF2476AC66000EBF76 /* GetBundleId.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +723,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA5690F18E5372EA4C07CCE4 /* Pods-realisernTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -725,6 +747,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ACD61B5A7B295EFA011811B5 /* Pods-realisernTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = realisernTests/Info.plist;
@@ -746,6 +769,7 @@
 			baseConfigurationReference = 10845E9CD2398C433633AB5F /* Pods-realisern.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = realisern/Info.plist;
@@ -757,6 +781,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = realisern;
+				SWIFT_OBJC_BRIDGING_HEADER = "realisern-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -766,6 +793,7 @@
 			baseConfigurationReference = BB8D6472841BE475088FB11D /* Pods-realisern.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = realisern/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -776,6 +804,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = realisern;
+				SWIFT_OBJC_BRIDGING_HEADER = "realisern-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
