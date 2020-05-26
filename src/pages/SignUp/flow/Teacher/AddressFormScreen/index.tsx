@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
-import Wrapper from '../../../Wrapper';
+import SignUpTeacherWalker from '../../../SignUpTeacherWalker';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../../../../navigation/RootNavigation';
 import ProgressBar from '../components/ProgressBar';
@@ -33,10 +33,10 @@ const AddressFormScreen: React.FC<Props> = ({navigation}) => {
     country: '',
   });
 
-  const leftButtonFunction = () => {
+  const onLeftButtonFunction = () => {
     navigation.goBack();
   };
-  const rightButtonFunction = () => {
+  const onRightButtonFunction = () => {
     navigation.navigate('SignUpTeacher', {screen: 'IntermediaryInfoScreen'});
   };
 
@@ -49,12 +49,12 @@ const AddressFormScreen: React.FC<Props> = ({navigation}) => {
     }));
   };
   return (
-    <Wrapper
+    <SignUpTeacherWalker
       bottomBarContent={{leftButton: '< back', rightButton: 'next >'}}
-      multi
+      multiBottomBarContent
       bottomBarIncluded
-      leftButtonFunction={leftButtonFunction}
-      rightButtonFunction={rightButtonFunction}>
+      onLeftButtonFunction={onLeftButtonFunction}
+      onRightButtonFunction={onRightButtonFunction}>
       <View style={styles.addressFormContainer}>
         <ProgressBar progress={35} />
         <View style={styles.formWrapper}>
@@ -144,7 +144,7 @@ const AddressFormScreen: React.FC<Props> = ({navigation}) => {
           </View>
         </View>
       </View>
-    </Wrapper>
+    </SignUpTeacherWalker>
   );
 };
 

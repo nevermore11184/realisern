@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Platform, View} from 'react-native';
-import Wrapper from '../../../Wrapper';
+import SignUpTeacherWalker from '../../../SignUpTeacherWalker';
 import ProgressBar from '../components/ProgressBar';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../../../../navigation/RootNavigation';
@@ -30,19 +30,19 @@ const CredentialsFormScreen: React.FC<Props> = props => {
       [fieldName]: text,
     }));
   };
-  const leftButtonFunction = () => {
+  const onLeftButtonFunction = () => {
     navigation.goBack();
   };
-  const rightButtonFunction = () => {
+  const onRightButtonFunction = () => {
     navigation.navigate('SignUpTeacher', {screen: 'AddressFormScreen'});
   };
   return (
-    <Wrapper
+    <SignUpTeacherWalker
       bottomBarContent={{leftButton: '< back', rightButton: 'next >'}}
-      multi
+      multiBottomBarContent
       bottomBarIncluded
-      leftButtonFunction={leftButtonFunction}
-      rightButtonFunction={rightButtonFunction}>
+      onLeftButtonFunction={onLeftButtonFunction}
+      onRightButtonFunction={onRightButtonFunction}>
       <View style={styles.credentialsFormWrapper}>
         <ProgressBar progress={25} />
         <View style={styles.formWrapper}>
@@ -74,7 +74,7 @@ const CredentialsFormScreen: React.FC<Props> = props => {
           ))}
         </View>
       </View>
-    </Wrapper>
+    </SignUpTeacherWalker>
   );
 };
 

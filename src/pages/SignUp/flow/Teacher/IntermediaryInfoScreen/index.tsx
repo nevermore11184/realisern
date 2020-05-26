@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import Wrapper from '../../../Wrapper';
+import SignUpTeacherWalker from '../../../SignUpTeacherWalker';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../../../../navigation/RootNavigation';
 import ProgressBar from '../components/ProgressBar';
@@ -18,16 +18,16 @@ interface Props {
 }
 
 const IntermediaryInfoScreen: React.FC<Props> = ({navigation}) => {
-  const rightButtonFunction = (): void => {
+  const onRightButtonFunction = (): void => {
     navigation.navigate('SignUpTeacher', {screen: 'Facts'});
   };
   return (
-    <Wrapper
+    <SignUpTeacherWalker
       bottomBarContent={{leftButton: '', rightButton: 'okay >'}}
-      multi
+      multiBottomBarContent
       bottomBarIncluded
-      leftButtonFunction={() => 'temporarily'}
-      rightButtonFunction={rightButtonFunction}>
+      onLeftButtonFunction={() => 'temporarily'}
+      onRightButtonFunction={onRightButtonFunction}>
       <View style={styles.infoScreenContainer}>
         <ProgressBar progress={50} />
         <View style={styles.titleWrapper}>
@@ -36,7 +36,7 @@ const IntermediaryInfoScreen: React.FC<Props> = ({navigation}) => {
           </Text>
         </View>
       </View>
-    </Wrapper>
+    </SignUpTeacherWalker>
   );
 };
 

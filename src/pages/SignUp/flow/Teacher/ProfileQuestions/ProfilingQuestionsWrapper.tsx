@@ -1,5 +1,5 @@
 import React from 'react';
-import Wrapper from '../../../Wrapper';
+import SignUpTeacherWalker from '../../../SignUpTeacherWalker';
 import {Text, View} from 'react-native';
 import {styles} from './Facts/styles';
 import ProgressBar from '../components/ProgressBar';
@@ -11,8 +11,8 @@ interface Props {
   progress: number;
   bottomBarContent: {leftButton: string; rightButton: string};
   multi: boolean;
-  leftButtonFunction: () => void;
-  rightButtonFunction: () => void;
+  onLeftButtonFunction: () => void;
+  onRightButtonFunction: () => void;
   callBackSliderFunction: (arg: number) => void;
 }
 
@@ -21,17 +21,17 @@ const ProfilingQuestionsWrapper: React.FC<Props> = ({
   progress,
   bottomBarContent,
   multi,
-  leftButtonFunction,
-  rightButtonFunction,
+  onLeftButtonFunction,
+  onRightButtonFunction,
   callBackSliderFunction,
 }) => {
   return (
-    <Wrapper
+    <SignUpTeacherWalker
       bottomBarContent={bottomBarContent}
-      multi={multi}
+      multiBottomBarContent={multi}
       bottomBarIncluded
-      leftButtonFunction={leftButtonFunction}
-      rightButtonFunction={rightButtonFunction}>
+      onLeftButtonFunction={onLeftButtonFunction}
+      onRightButtonFunction={onRightButtonFunction}>
       <View style={styles.majorWrapper}>
         <View style={styles.progressBarWrapper}>
           <ProgressBar progress={progress} />
@@ -59,7 +59,7 @@ const ProfilingQuestionsWrapper: React.FC<Props> = ({
           />
         </View>
       </View>
-    </Wrapper>
+    </SignUpTeacherWalker>
   );
 };
 

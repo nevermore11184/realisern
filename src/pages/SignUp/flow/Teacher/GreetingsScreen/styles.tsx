@@ -22,7 +22,6 @@ export const styles = StyleSheet.create({
   greetingsScreenWrapper: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    position: 'relative',
     width: '100%',
     paddingLeft: '16%',
   },

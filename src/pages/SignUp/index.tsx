@@ -12,7 +12,7 @@ import {styles} from './styles';
 import i18n from '../../config/locales/customisation';
 import TeacherIcon from '../../assets/icons/TeacherIcon';
 import SchoolerIcon from '../../assets/icons/SchoolerIcon';
-import Wrapper from './Wrapper';
+import SignUpTeacherWalker from './SignUpTeacherWalker';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -30,13 +30,13 @@ const SignUp: React.FC<Props> = props => {
   };
 
   return (
-    <Wrapper multi={false} bottomBarIncluded={false}>
+    <SignUpTeacherWalker
+      multiBottomBarContent={false}
+      bottomBarIncluded={false}>
       <View style={styles.contentWrapper}>
         <Text style={styles.title}>{i18n.t('signUpFlow.homePage.title')}</Text>
         <View
-          style={{
-            paddingTop: Platform.OS === 'ios' ? '35%' : '20%',
-          }}>
+          style={styles.innerWrapper}>
           <TouchableWithoutFeedback onPress={onNavigateToFlow('SignUpTeacher')}>
             <SafeAreaView style={styles.iconWrapper}>
               <TeacherIcon />
@@ -55,7 +55,7 @@ const SignUp: React.FC<Props> = props => {
           </TouchableWithoutFeedback>
         </View>
       </View>
-    </Wrapper>
+    </SignUpTeacherWalker>
   );
 };
 

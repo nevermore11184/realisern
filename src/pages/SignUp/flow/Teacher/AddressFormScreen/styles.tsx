@@ -25,7 +25,6 @@ export const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   radioButtonsWrapper: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: '10%',

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import Wrapper from '../../../Wrapper';
+import SignUpTeacherWalker from '../../../SignUpTeacherWalker';
 import TeacherLogo from '../../../../../assets/icons/TeacherLogo';
 import i18n from '../../../../../config/locales/customisation';
 
@@ -23,9 +23,9 @@ const GreetingsScreen: React.FC<Props> = props => {
     navigation.navigate('SignUpTeacher', {screen: 'CredentialsFormScreen'});
   };
   return (
-    <Wrapper
+    <SignUpTeacherWalker
       bottomBarText="I'am ready >"
-      multi={false}
+      multiBottomBarContent={false}
       navigatorFunction={bottomNavigatorFunction}
       bottomBarIncluded>
       <View style={styles.greetingsScreenWrapper}>
@@ -39,7 +39,7 @@ const GreetingsScreen: React.FC<Props> = props => {
           <TeacherLogo />
         </View>
       </View>
-    </Wrapper>
+    </SignUpTeacherWalker>
   );
 };
 

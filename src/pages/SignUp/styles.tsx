@@ -18,6 +18,9 @@ export const styles = StyleSheet.create({
     height: '25%',
     marginBottom: '35%',
   },
+  innerWrapper: {
+    paddingTop: '35%',
+  },
   iconText: {
     color: 'white',
     marginTop: '16%',

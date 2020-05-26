@@ -17,13 +17,13 @@ const AcademicallyFocused: React.FC<Props> = ({navigation}) => {
   const sliderFunction = (value: number) => {
     setAcademicalValue(value);
   };
-  const rightButtonFunction = (): void => {
+  const onRightButtonFunction = (): void => {
     navigation.navigate('SignUpTeacher', {
       screen: 'AcademicallyFocused',
       academicalValue,
     });
   };
-  const leftButtonFunction = (): void => {
+  const onLeftButtonFunction = (): void => {
     navigation.navigate('SignUpTeacher', {screen: 'Facts'});
   };
   return (
@@ -32,8 +32,8 @@ const AcademicallyFocused: React.FC<Props> = ({navigation}) => {
       progress={75}
       bottomBarContent={{leftButton: '< back', rightButton: 'okay >'}}
       multi={true}
-      leftButtonFunction={leftButtonFunction}
-      rightButtonFunction={rightButtonFunction}
+      onLeftButtonFunction={onLeftButtonFunction}
+      onRightButtonFunction={onRightButtonFunction}
       callBackSliderFunction={sliderFunction}
     />
   );

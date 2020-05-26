@@ -14,23 +14,23 @@ interface Props {
   children: ReactNode;
   bottomBarIncluded: boolean;
   bottomBarText?: string;
-  multi: boolean;
+  multiBottomBarContent: boolean;
   navigatorFunction?: () => void;
   bottomBarContent?: {leftButton: string; rightButton: string};
-  leftButtonFunction?: () => void;
-  rightButtonFunction?: () => void;
+  onLeftButtonFunction?: () => void;
+  onRightButtonFunction?: () => void;
 }
 
-const Wrapper: React.FC<Props> = props => {
+const SignUpTeacherWalker: React.FC<Props> = props => {
   const {
     children,
     bottomBarIncluded,
     navigatorFunction,
     bottomBarText,
-    multi,
+    multiBottomBarContent,
     bottomBarContent = {rightButton: 'none', leftButton: 'none'},
-    leftButtonFunction,
-    rightButtonFunction,
+    onLeftButtonFunction,
+    onRightButtonFunction,
   } = props;
   return (
     <ImageBackground
@@ -48,16 +48,18 @@ const Wrapper: React.FC<Props> = props => {
                 <View
                   style={{
                     ...styles.bottomNavigationTextWrapper,
-                    justifyContent: multi ? 'space-between' : 'center',
+                    justifyContent: multiBottomBarContent
+                      ? 'space-between'
+                      : 'center',
                   }}>
-                  {multi ? (
+                  {multiBottomBarContent ? (
                     <React.Fragment>
-                      <TouchableWithoutFeedback onPress={leftButtonFunction}>
+                      <TouchableWithoutFeedback onPress={onLeftButtonFunction}>
                         <Text style={styles.bottomNavigationText}>
                           {bottomBarContent.leftButton}
                         </Text>
                       </TouchableWithoutFeedback>
-                      <TouchableWithoutFeedback onPress={rightButtonFunction}>
+                      <TouchableWithoutFeedback onPress={onRightButtonFunction}>
                         <Text style={styles.bottomNavigationText}>
                           {bottomBarContent.rightButton}
                         </Text>
@@ -78,4 +80,4 @@ const Wrapper: React.FC<Props> = props => {
   );
 };
 
-export default Wrapper;
+export default SignUpTeacherWalker;

@@ -5,6 +5,7 @@ import {
   View,
   TouchableWithoutFeedback,
   Text,
+  ViewStyle,
 } from 'react-native';
 import toUpperFirst from 'lodash/upperFirst';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -20,11 +21,11 @@ interface FloatingTextInput {
   inputStyles: object;
   onChangeText: (arg: string) => void;
   name: string;
-  keyboardType?: () => void;
-  otherTextInputProps?: any;
+  keyboardType?: string;
   secureTextEntry?: boolean;
-  wrapperStyles?: object;
+  wrapperStyles?: ViewStyle;
   label?: string;
+  otherTextInputProps?: object;
 }
 
 const FloatingTextInputField = (props: FloatingTextInput) => {
@@ -80,7 +81,7 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
   const {checkIcon, closeCircle} = loginColors;
 
   return (
-    <View style={{...styles.wrapper, ...wrapperStyles}}>
+    <View style={[styles.wrapper, wrapperStyles]}>
       {label && <Text style={styles.label}>{label}</Text>}
       <TouchableWithoutFeedback onPress={handleFocus}>
         <View style={styles.container}>
@@ -111,17 +112,16 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
           )}
           <TextInput
             value={value}
-            name={name}
             secureTextEntry={secureTextEntry}
             style={[
               inputStyles,
               dynamicInputStyles && dynamicInputStyles(isFieldActive),
             ]}
             underlineColorAndroid="transparent"
+            keyboardType="default"
             onFocus={handleFocus}
             onBlur={handleBlur}
             onChangeText={onChangeText}
-            keyboardType={keyboardType}
             {...otherTextInputProps}
           />
         </View>
