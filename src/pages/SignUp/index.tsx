@@ -1,12 +1,6 @@
 import React from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {
-  View,
-  Text,
-  TouchableWithoutFeedback,
-  Platform,
-  SafeAreaView,
-} from 'react-native';
+import {View, Text, TouchableWithoutFeedback, SafeAreaView} from 'react-native';
 import {RootStackParamsList} from '../../navigation/RootNavigation';
 import {styles} from './styles';
 import i18n from '../../config/locales/customisation';
@@ -35,8 +29,7 @@ const SignUp: React.FC<Props> = props => {
       bottomBarIncluded={false}>
       <View style={styles.contentWrapper}>
         <Text style={styles.title}>{i18n.t('signUpFlow.homePage.title')}</Text>
-        <View
-          style={styles.innerWrapper}>
+        <View style={styles.innerWrapper}>
           <TouchableWithoutFeedback onPress={onNavigateToFlow('SignUpTeacher')}>
             <SafeAreaView style={styles.iconWrapper}>
               <TeacherIcon />
