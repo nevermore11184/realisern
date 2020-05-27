@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Dimensions} from 'react-native';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import {CustomMarker} from './CustomMarker';
@@ -19,62 +19,41 @@ interface State {
   multiSliderValue: number[];
 }
 
-class CustomSlider extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      multiSliderValue: [this.props.min, this.props.max],
-      first: this.props.min,
-      second: this.props.max,
-    };
-  }
+const CustomSlider: React.FC = (props: Props) => {
+  const [state, setLocalState] = useState({
+    multiSliderValue: [props.min, props.max],
+    first: props.min,
+    second: props.max,
+  });
 
-  render() {
-    const {LRpadding, single, min, max} = this.props;
-    const {multiSliderValue} = this.state;
-    const multiSliderValues = single
-      ? [multiSliderValue[1]]
-      : [multiSliderValue[0], multiSliderValue[1]];
-    const sliderLength = Dimensions.get('window').width - LRpadding * 25;
+  const {LRpadding, single, min, max} = props;
+  const {multiSliderValue} = state;
+  const multiSliderValues = single
+    ? [multiSliderValue[1]]
+    : [multiSliderValue[0], multiSliderValue[1]];
+  const sliderLength = Dimensions.get('window').width - LRpadding * 25;
 
-    return (
-      <View>
-        <View
-          style={[styles.row, {marginLeft: LRpadding, marginRight: LRpadding}]}>
-          {this.renderScale()}
-        </View>
-        <View style={styles.container}>
-          <MultiSlider
-            trackStyle={styles.trackStyle}
-            selectedStyle={styles.trackStyle}
-            values={multiSliderValues}
-            sliderLength={sliderLength}
-            onValuesChange={this.multiSliderValuesChange}
-            min={min}
-            max={max}
-            step={1}
-            allowOverlap={false}
-            customMarker={CustomMarker}
-            snapped={true}
-          />
-        </View>
-      </View>
-    );
-  }
+  const renderScale = () => {
+    const items = [];
+    for (let i = props.min; i <= props.max; i++) {
+      items.push(<Item value={i} first={state.first} second={state.second} />);
+    }
+    return items;
+  };
 
-  multiSliderValuesChange = (values: number[]) => {
+  const multiSliderValuesChange = (values: number[]) => {
     const callBack = () => {
-      this.props.callBackSliderFunction(this.state.second);
+      props.callBackSliderFunction(state.second);
     };
-    if (this.props.single) {
-      this.setState(
+    if (props.single) {
+      setLocalState(
         {
           second: values[0],
         },
         callBack,
       );
     } else {
-      this.setState({
+      setLocalState({
         multiSliderValue: values,
         first: values[0],
         second: values[1],
@@ -82,16 +61,30 @@ class CustomSlider extends Component<Props, State> {
     }
   };
 
-  renderScale = () => {
-    const items = [];
-    for (let i = this.props.min; i <= this.props.max; i++) {
-      items.push(
-        <Item value={i} first={this.state.first} second={this.state.second} />,
-      );
-    }
-    return items;
-  };
-}
+  return (
+    <View>
+      <View
+        style={[styles.row, {marginLeft: LRpadding, marginRight: LRpadding}]}>
+        {renderScale()}
+      </View>
+      <View style={styles.container}>
+        <MultiSlider
+          trackStyle={styles.trackStyle}
+          selectedStyle={styles.trackStyle}
+          values={multiSliderValues}
+          sliderLength={sliderLength}
+          onValuesChange={multiSliderValuesChange}
+          min={min}
+          max={max}
+          step={1}
+          allowOverlap={false}
+          customMarker={CustomMarker}
+          snapped={true}
+        />
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
