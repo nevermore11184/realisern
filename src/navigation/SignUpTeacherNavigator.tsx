@@ -10,6 +10,11 @@ import CredentialsFormScreen from '../pages/SignUp/flow/Teacher/CredentialsFormS
 import AddressFormScreen from '../pages/SignUp/flow/Teacher/AddressFormScreen';
 import IntermediaryInfoScreen from '../pages/SignUp/flow/Teacher/IntermediaryInfoScreen';
 import Facts from '../pages/SignUp/flow/Teacher/ProfileQuestions/Facts';
+import AcademicallyFocused from '../pages/SignUp/flow/Teacher/ProfileQuestions/AcademicallyFocused';
+import Methodical from '../pages/SignUp/flow/Teacher/ProfileQuestions/Methodical';
+import Networking from '../pages/SignUp/flow/Teacher/ProfileQuestions/Networking';
+import Target from '../pages/SignUp/flow/Teacher/ProfileQuestions/Target';
+import Confirmation from "../pages/SignUp/flow/Teacher/ProfileQuestions/Confirmation";
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -54,7 +59,14 @@ const SignUpTeacherNavigator: React.FC<Props> = () => {
         component={IntermediaryInfoScreen}
       />
       <StackNavigator.Screen name="Facts" component={Facts} />
-      <StackNavigator.Screen name="AcademicallyFocused" component={Facts} />
+      <StackNavigator.Screen
+        name="AcademicallyFocused"
+        component={AcademicallyFocused}
+      />
+      <StackNavigator.Screen name="Methodical" component={Methodical} />
+      <StackNavigator.Screen name="Networking" component={Networking} />
+      <StackNavigator.Screen name="Target" component={Target} />
+      <StackNavigator.Screen name="Confirmation" component={Confirmation} />
     </StackNavigator.Navigator>
   );
 };

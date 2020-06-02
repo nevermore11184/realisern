@@ -1,17 +1,19 @@
-import {Dimensions, StyleSheet} from 'react-native';
-import {loginColors} from '../../../../../Login/constants';
-
-const height = Dimensions.get('window').height;
+import {StyleSheet} from 'react-native';
+import {loginColors} from '../../../../Login/constants';
 
 export const styles = StyleSheet.create({
   majorWrapper: {
     width: '80%',
     alignSelf: 'center',
-    height: height - 250,
+    marginBottom: '20%',
   },
   sliderWrapper: {
     marginTop: '15%',
     width: '100%',
+  },
+  iconWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   progressBarWrapper: {
     width: '100%',

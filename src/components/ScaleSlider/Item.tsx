@@ -1,17 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-interface Props {
-  value: number;
-  first: number;
-  second: number;
-}
-
-export class Item extends Component<Props> {
-  render() {
-    return <View style={styles.snap} />;
-  }
-}
+const Item: React.FC = () => {
+  return <View style={styles.snap} />;
+};
 
 const styles = StyleSheet.create({
   snap: {
@@ -21,3 +13,5 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
 });
+
+export default Item;

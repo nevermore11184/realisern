@@ -3,32 +3,29 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../../../../../navigation/RootNavigation';
 import ProfilingQuestionsWrapper from '../ProfilingQuestionsWrapper';
 
-type NavigationScreenProp = StackNavigationProp<
-  RootStackParamsList,
-  'AcademicallyFocused'
->;
+type NavigationScreenProp = StackNavigationProp<RootStackParamsList, 'Target'>;
 
 interface Props {
   navigation: NavigationScreenProp;
 }
 
-const Facts: React.FC<Props> = ({navigation}) => {
-  const [factsValue, setFactsValue] = useState(0);
+const Target: React.FC<Props> = ({navigation}) => {
+  const [methodicalValue, setMethodicalValue] = useState(0);
   const sliderFunction = (value: number) => {
-    setFactsValue(value);
+    setMethodicalValue(value);
   };
   const onRightButtonFunction = (): void => {
     navigation.navigate('SignUpTeacher', {
-      screen: 'AcademicallyFocused',
-      factsValue,
+      screen: 'Confirmation',
+      methodicalValue,
     });
   };
   const onLeftButtonFunction = (): void => {
-    navigation.navigate('SignUpTeacher', {screen: 'IntermediaryInfoScreen'});
+    navigation.navigate('SignUpTeacher', {screen: 'Networking'});
   };
   return (
     <ProfilingQuestionsWrapper
-      screenName="facts"
+      screenName="target"
       progress={75}
       bottomBarContent={{leftButton: '< back', rightButton: 'okay >'}}
       multi={true}
@@ -39,4 +36,4 @@ const Facts: React.FC<Props> = ({navigation}) => {
   );
 };
 
-export default Facts;
+export default Target;

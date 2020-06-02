@@ -19,7 +19,7 @@ const AcademicallyFocused: React.FC<Props> = ({navigation}) => {
   };
   const onRightButtonFunction = (): void => {
     navigation.navigate('SignUpTeacher', {
-      screen: 'AcademicallyFocused',
+      screen: 'Methodical',
       academicalValue,
     });
   };
@@ -28,7 +28,7 @@ const AcademicallyFocused: React.FC<Props> = ({navigation}) => {
   };
   return (
     <ProfilingQuestionsWrapper
-      screenName="facts"
+      screenName="academicallyFocused"
       progress={75}
       bottomBarContent={{leftButton: '< back', rightButton: 'okay >'}}
       multi={true}

@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-export class CustomMarker extends Component {
-  render() {
-    return <View style={styles.marker} />;
-  }
-}
+const Marker: React.FC = () => {
+  return <View style={styles.marker} />;
+};
 
 const styles = StyleSheet.create({
   marker: {
@@ -15,3 +13,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#DC008E',
   },
 });
+
+export default Marker;

@@ -57,6 +57,35 @@ export default {
         contentText: 'How would you describe what drives you?',
         sliderTitle: 'Facts',
       },
+      academicallyFocused: {
+        contentTitle: 'Profiling questions',
+        contentText: 'What do you look for in a school`s environment',
+        sliderTitle: 'Academically focused',
+      },
+      methodical: {
+        contentTitle: 'Profiling questions',
+        contentText:
+          'Do you work in a structured, methodical way or are you more flexible and adaptable?',
+        sliderTitle: 'Methodical',
+      },
+      networking: {
+        contentTitle: 'Profiling questions',
+        contentText: 'How would you describe your behaviour management style?',
+        sliderTitle: 'Strict',
+      },
+      target: {
+        contentTitle: 'Profiling questions',
+        contentText:
+          'Do you enjoy working in a collaborative environment or prefer working independently?',
+        sliderTitle: 'Strict',
+      },
+      confirmation: {
+        coreContent:
+          'I confirm by creating this account that I agree to RealiseMe’s',
+        privacy: 'Privacy Policy',
+        and: 'and',
+        termsConditions: 'Terms and Conditions',
+      },
     },
   },
 };

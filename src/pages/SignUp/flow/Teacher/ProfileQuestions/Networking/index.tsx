@@ -5,30 +5,30 @@ import ProfilingQuestionsWrapper from '../ProfilingQuestionsWrapper';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
-  'AcademicallyFocused'
+  'Networking'
 >;
 
 interface Props {
   navigation: NavigationScreenProp;
 }
 
-const Facts: React.FC<Props> = ({navigation}) => {
-  const [factsValue, setFactsValue] = useState(0);
+const Networking: React.FC<Props> = ({navigation}) => {
+  const [networkingValue, setNetworkingValue] = useState(0);
   const sliderFunction = (value: number) => {
-    setFactsValue(value);
+    setNetworkingValue(value);
   };
   const onRightButtonFunction = (): void => {
     navigation.navigate('SignUpTeacher', {
-      screen: 'AcademicallyFocused',
-      factsValue,
+      screen: 'Target',
+      networkingValue,
     });
   };
   const onLeftButtonFunction = (): void => {
-    navigation.navigate('SignUpTeacher', {screen: 'IntermediaryInfoScreen'});
+    navigation.navigate('SignUpTeacher', {screen: 'Methodical'});
   };
   return (
     <ProfilingQuestionsWrapper
-      screenName="facts"
+      screenName="networking"
       progress={75}
       bottomBarContent={{leftButton: '< back', rightButton: 'okay >'}}
       multi={true}
@@ -39,4 +39,4 @@ const Facts: React.FC<Props> = ({navigation}) => {
   );
 };
 
-export default Facts;
+export default Networking;

@@ -18,6 +18,8 @@ export type RootStackParamsList = {
     screen: string;
     factsValue?: number;
     academicalValue?: number;
+    methodicalValue?: number;
+    networkingValue?: number;
   };
   SignUpSchool: undefined;
   SignUpNavigator: {screen: string};
@@ -30,6 +32,10 @@ export type RootStackParamsList = {
   IntermediaryInfoScreen: undefined;
   Facts: undefined;
   AcademicallyFocused: undefined;
+  Methodical: undefined;
+  Networking: undefined;
+  Target: undefined;
+  Confirmation: undefined;
 };
 
 const StackNavigator = createStackNavigator<RootStackParamsList>();

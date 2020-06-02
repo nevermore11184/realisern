@@ -22,8 +22,12 @@ interface Props {
 const CredentialsFormScreen: React.FC<Props> = props => {
   const {navigation} = props;
   const [localState, setLocalState] = useState({
-    firstName: '',
-  });
+    first_name: '',
+    last_name: '',
+    birth_date: '',
+    role_title: '',
+    mobile: '',
+  } as {[key: string]: string});
   const onChangeText = (fieldName: string) => (text: string): void => {
     setLocalState(prevState => ({
       ...prevState,
@@ -49,13 +53,13 @@ const CredentialsFormScreen: React.FC<Props> = props => {
           {inputs.map(input => (
             <View key={input.name} style={styles.inputWrapper}>
               <FloatingTextInputField
-                value={localState.firstName}
+                value={localState[input.value]}
                 title={input.title}
                 inputStyles={styles.input}
                 wrapperStyles={{
                   width: input.name === 'mobile' ? '63%' : '100%',
                 }}
-                onChangeText={onChangeText(input.name)}
+                onChangeText={onChangeText(input.value)}
                 name={input.name}
                 label={input.label}
               />

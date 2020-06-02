@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import SignUpTeacherWalker from '../../../SignUpTeacherWalker';
 import {Text, View} from 'react-native';
-import {styles} from './Facts/styles';
+import {styles} from './styles';
 import ProgressBar from '../components/ProgressBar';
 import i18n from '../../../../../config/locales/customisation';
 import ScaleSlider from '../../../../../components/ScaleSlider';
+import NetworkingIcon from '../../../../../assets/icons/NetworkingIcon';
+import TargetIcon from '../../../../../assets/icons/TargetIcon';
 
 interface Props {
   screenName: string;
@@ -14,6 +16,11 @@ interface Props {
   onLeftButtonFunction: () => void;
   onRightButtonFunction: () => void;
   callBackSliderFunction: (arg: number) => void;
+  children?: ReactNode;
+}
+
+interface Icons {
+  [p: string]: null | JSX.Element;
 }
 
 const ProfilingQuestionsWrapper: React.FC<Props> = ({
@@ -24,7 +31,16 @@ const ProfilingQuestionsWrapper: React.FC<Props> = ({
   onLeftButtonFunction,
   onRightButtonFunction,
   callBackSliderFunction,
+  children,
 }) => {
+  const icons: Icons = {
+    facts: null,
+    academicallyFocused: null,
+    methodical: null,
+    networking: <NetworkingIcon width={200} height={200} />,
+    target: <TargetIcon width={200} height={200} />,
+  } as {[key: string]: null | JSX.Element};
+
   return (
     <SignUpTeacherWalker
       bottomBarContent={bottomBarContent}
@@ -45,6 +61,7 @@ const ProfilingQuestionsWrapper: React.FC<Props> = ({
               {i18n.t(`signUpFlow.teacherFlow.${screenName}.contentText`)}
             </Text>
           </View>
+          <View style={styles.iconWrapper}>{icons[screenName]}</View>
           <View style={styles.sliderTitleWrapper}>
             <Text style={styles.sliderTitle}>
               {i18n.t(`signUpFlow.teacherFlow.${screenName}.sliderTitle`)}
@@ -59,6 +76,7 @@ const ProfilingQuestionsWrapper: React.FC<Props> = ({
           />
         </View>
       </View>
+      {children}
     </SignUpTeacherWalker>
   );
 };
