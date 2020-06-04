@@ -6,7 +6,6 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamsList} from '../../../../../../navigation/RootNavigation';
 import {styles} from './styles';
 import ProgressBar from '../../components/ProgressBar';
-import ConfirmationButton from './Button';
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -54,14 +53,18 @@ const Confirmation: React.FC<Props> = props => {
         </View>
         <View style={styles.buttonsWrapper}>
           <TouchableWithoutFeedback onPress={onProceed}>
-            <ConfirmationButton agree>
-              {i18n.t('signUpFlow.teacherFlow.confirmation.agree')}
-            </ConfirmationButton>
+            <View style={styles.agreeButton}>
+              <Text style={styles.agreeButtonText}>
+                {i18n.t('signUpFlow.teacherFlow.confirmation.agree')}
+              </Text>
+            </View>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback onPress={goBack}>
-            <ConfirmationButton agree={false}>
-              {i18n.t('signUpFlow.teacherFlow.confirmation.notAgree')}
-            </ConfirmationButton>
+            <View style={styles.disagreeButton}>
+              <Text style={styles.disagreeButtonText}>
+                {i18n.t('signUpFlow.teacherFlow.confirmation.notAgree')}
+              </Text>
+            </View>
           </TouchableWithoutFeedback>
         </View>
       </View>

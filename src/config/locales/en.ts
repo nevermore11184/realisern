@@ -1,3 +1,9 @@
+import SearchIcon from "../../assets/icons/SignUpTeacherFlow_Finish/SearchIcon";
+import UnlockIcon from "../../assets/icons/SignUpTeacherFlow_Finish/UnlockIcon";
+import ReadIcon from "../../assets/icons/SignUpTeacherFlow_Finish/ReadIcon";
+import JoinIcon from "../../assets/icons/SignUpTeacherFlow_Finish/JoinIcon";
+import React from "react";
+
 export default {
   loginFlow: {
     forgotPassword: 'Forgotten password?',
@@ -87,6 +93,14 @@ export default {
         termsConditions: ' Terms and Conditions',
         agree: 'I agree',
         notAgree: 'I don`t agree',
+      },
+      finishScreen: {
+        title: 'You`re all set!',
+        thanks: 'Thanks for registering at RealiseMe, you can now:',
+        search: 'search for your next teaching job',
+        unlock: 'unlock more features by updating your account',
+        read: 'read informative blogs written by teachers for teachers',
+        join: 'join our supportive community forum',
       },
     },
   },

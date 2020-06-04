@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
     right: 0,
     bottom: -10,
     flexDirection: 'row',
-    height: 75,
+    height: 80,
     paddingTop: '15%',
     alignItems: 'center',
     justifyContent: 'center',
