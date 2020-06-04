@@ -15,6 +15,7 @@ import Methodical from '../pages/SignUp/flow/Teacher/ProfileQuestions/Methodical
 import Networking from '../pages/SignUp/flow/Teacher/ProfileQuestions/Networking';
 import Target from '../pages/SignUp/flow/Teacher/ProfileQuestions/Target';
 import Confirmation from "../pages/SignUp/flow/Teacher/ProfileQuestions/Confirmation";
+import FinishScreen from "../pages/SignUp/flow/Teacher/ProfileQuestions/FinishScreen";
 
 type NavigationScreenProp = StackNavigationProp<
   RootStackParamsList,
@@ -67,6 +68,7 @@ const SignUpTeacherNavigator: React.FC<Props> = () => {
       <StackNavigator.Screen name="Networking" component={Networking} />
       <StackNavigator.Screen name="Target" component={Target} />
       <StackNavigator.Screen name="Confirmation" component={Confirmation} />
+      <StackNavigator.Screen name="FinishScreen" component={FinishScreen} />
     </StackNavigator.Navigator>
   );
 };

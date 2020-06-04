@@ -36,6 +36,7 @@ export type RootStackParamsList = {
   Networking: undefined;
   Target: undefined;
   Confirmation: undefined;
+  FinishScreen: undefined;
 };
 
 const StackNavigator = createStackNavigator<RootStackParamsList>();

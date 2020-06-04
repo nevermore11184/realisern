@@ -18,15 +18,20 @@ interface Props {
 }
 
 const Confirmation: React.FC<Props> = props => {
-  const bottomNavigatorFunction = () => {
-    const {navigation} = props;
+  const {navigation} = props;
+  const goBack = () => {
     navigation.navigate('SignUpTeacher', {screen: 'Target'});
   };
+
+  const onProceed = () => {
+    navigation.navigate('SignUpTeacher', {screen: 'FinishScreen'});
+  };
+
   return (
     <SignUpTeacherWalker
       bottomBarIncluded
       bottomBarText="< back"
-      navigatorFunction={bottomNavigatorFunction}
+      navigatorFunction={goBack}
       multiBottomBarContent={false}
       transparentFooter>
       <View style={styles.confirmationWrapper}>
@@ -48,12 +53,12 @@ const Confirmation: React.FC<Props> = props => {
           </Text>
         </View>
         <View style={styles.buttonsWrapper}>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={onProceed}>
             <ConfirmationButton agree>
               {i18n.t('signUpFlow.teacherFlow.confirmation.agree')}
             </ConfirmationButton>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={goBack}>
             <ConfirmationButton agree={false}>
               {i18n.t('signUpFlow.teacherFlow.confirmation.notAgree')}
             </ConfirmationButton>
