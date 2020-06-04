@@ -82,9 +82,11 @@ export default {
       confirmation: {
         coreContent:
           'I confirm by creating this account that I agree to RealiseMe’s',
-        privacy: 'Privacy Policy',
-        and: 'and',
-        termsConditions: 'Terms and Conditions',
+        privacy: ' Privacy Policy',
+        and: ' and',
+        termsConditions: ' Terms and Conditions',
+        agree: 'I agree',
+        notAgree: 'I don`t agree',
       },
     },
   },

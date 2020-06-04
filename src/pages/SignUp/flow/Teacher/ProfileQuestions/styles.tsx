@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     marginBottom: '20%',
   },
   sliderWrapper: {
-    marginTop: '15%',
+    marginTop: '6%',
     width: '100%',
   },
   iconWrapper: {
@@ -25,13 +25,13 @@ export const styles = StyleSheet.create({
   },
   sliderTitle: {
     color: loginColors.white,
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: '600',
   },
   contentWrapper: {
     width: '100%',
-    marginTop: '10%',
-    marginBottom: '20%',
+    marginTop: '7%',
+    marginBottom: '14%',
   },
   title: {
     fontSize: 24,

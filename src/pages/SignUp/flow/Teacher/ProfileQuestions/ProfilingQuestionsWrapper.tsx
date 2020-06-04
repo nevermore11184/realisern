@@ -37,8 +37,8 @@ const ProfilingQuestionsWrapper: React.FC<Props> = ({
     facts: null,
     academicallyFocused: null,
     methodical: null,
-    networking: <NetworkingIcon width={200} height={200} />,
-    target: <TargetIcon width={200} height={200} />,
+    networking: <NetworkingIcon width={150} height={160} />,
+    target: <TargetIcon width={150} height={130} />,
   } as {[key: string]: null | JSX.Element};
 
   return (

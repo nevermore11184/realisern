@@ -23,7 +23,7 @@ class CustomSlider extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      multiSliderValue: [this.props.min, this.props.max],
+      multiSliderValue: [this.props.max, this.props.min],
       first: this.props.min,
       second: this.props.max,
     };
