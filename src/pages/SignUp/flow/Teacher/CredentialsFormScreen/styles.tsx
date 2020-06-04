@@ -8,14 +8,15 @@ export const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     padding: '6%',
-    marginBottom: '10%',
+    paddingBottom: '5%',
   },
   input: {
     backgroundColor: loginColors.basicTransparentWhite,
     borderRadius: 3,
-    height: 65,
-    padding: 16,
-    paddingTop: 32,
+    height: 55,
+    padding: 8,
+    paddingTop: 24,
+    paddingLeft: 16,
     width: '100%',
   },
   formWrapper: {
@@ -30,9 +31,15 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   standardButton: {
-    height: 65,
+    height: 56,
   },
   standardButtonWrapper: {
     width: '30%',
+  },
+  labelStyles: {
+    fontSize: 19,
+  },
+  inputContainerHeight: {
+    height: 40,
   },
 });

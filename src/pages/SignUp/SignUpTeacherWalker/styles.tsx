@@ -1,11 +1,14 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import {loginColors} from '../../Login/constants';
+
+const topSpacing = Platform.OS === 'ios' ? '20%' : '10%';
 
 export const styles = StyleSheet.create({
   backgroundWrapper: {
     height: '100%',
   },
   innerWrapper: {
+    flex: 1,
     height: '100%',
   },
   bottomNavigation: {
@@ -16,6 +19,7 @@ export const styles = StyleSheet.create({
     paddingTop: '3%',
   },
   bottomNavigationTextWrapper: {
+    position: 'absolute',
     flexDirection: 'row',
     width: '100%',
     paddingLeft: '16%',
@@ -28,18 +32,36 @@ export const styles = StyleSheet.create({
   logoWrapper: {
     alignItems: 'center',
     width: '100%',
-    marginTop: '20%',
+    marginTop: topSpacing,
     marginBottom: '5%',
   },
   childrenWrapper: {
     flexGrow: 1,
   },
   bottomNavigationWrapper: {
-    flexGrow: 1,
-    height: 90,
+    flex: 0.1,
+    flexDirection: 'row',
+    height: 75,
+    paddingTop: '15%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
     borderTopWidth: 1,
     borderTopColor: loginColors.white,
-    justifyContent: 'center',
+  },
+  transparentFooter: {
+    position: 'absolute',
+    flex: 0.1,
+    left: 0,
+    right: 0,
+    bottom: -10,
+    flexDirection: 'row',
+    height: 75,
+    paddingTop: '15%',
     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    borderTopWidth: 1,
+    borderTopColor: loginColors.white,
   },
 });

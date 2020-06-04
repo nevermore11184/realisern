@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Platform} from 'react-native';
 import SignUpTeacherWalker from '../../../SignUpTeacherWalker';
 import TeacherLogo from '../../../../../assets/icons/TeacherLogo';
 import i18n from '../../../../../config/locales/customisation';
@@ -17,6 +17,11 @@ interface Props {
   navigation: NavigationScreenProp;
 }
 
+const teacherLogoParams = {
+  width: Platform.OS === 'ios' ? 230 : 200,
+  height: Platform.OS === 'ios' ? 520 : 350,
+};
+
 const GreetingsScreen: React.FC<Props> = props => {
   const bottomNavigatorFunction = () => {
     const {navigation} = props;
@@ -27,7 +32,8 @@ const GreetingsScreen: React.FC<Props> = props => {
       bottomBarText="I'am ready >"
       multiBottomBarContent={false}
       navigatorFunction={bottomNavigatorFunction}
-      bottomBarIncluded>
+      bottomBarIncluded
+      transparentFooter>
       <View style={styles.greetingsScreenWrapper}>
         <Text style={styles.title}>
           {i18n.t('signUpFlow.teacherFlow.firstScreen.welcome')}
@@ -36,7 +42,7 @@ const GreetingsScreen: React.FC<Props> = props => {
           {i18n.t('signUpFlow.teacherFlow.firstScreen.pageContent')}
         </Text>
         <View style={styles.logoWrapper}>
-          <TeacherLogo />
+          <TeacherLogo {...teacherLogoParams} />
         </View>
       </View>
     </SignUpTeacherWalker>

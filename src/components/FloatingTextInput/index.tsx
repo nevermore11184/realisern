@@ -26,6 +26,9 @@ interface FloatingTextInput {
   wrapperStyles?: ViewStyle;
   label?: string;
   otherTextInputProps?: object;
+  labelSize?: {fontSize: number};
+  inputContainerHeight?: {height: number};
+  untouchedTitleSpacing?: number;
 }
 
 const FloatingTextInputField = (props: FloatingTextInput) => {
@@ -36,12 +39,13 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
     title,
     inputStyles,
     onChangeText,
-    keyboardType,
     otherTextInputProps,
     secureTextEntry,
-    name,
     label,
     wrapperStyles,
+    labelSize,
+    inputContainerHeight,
+    untouchedTitleSpacing,
   } = props;
   const [position] = useState(new Animated.Value(value ? 1 : 0));
   const [isFieldActive, setFieldActive] = useState(false);
@@ -73,7 +77,7 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
       inputRange: [0, 1],
       outputRange: [14, 0],
     }),
-    ...animatedLabelStyles(isFieldActive),
+    ...animatedLabelStyles(isFieldActive, untouchedTitleSpacing),
   });
 
   const displayValidationIcon = isFieldActive && validationIconIncluded;
@@ -82,9 +86,9 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
 
   return (
     <View style={[styles.wrapper, wrapperStyles]}>
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && <Text style={[styles.label, labelSize]}>{label}</Text>}
       <TouchableWithoutFeedback onPress={handleFocus}>
-        <View style={styles.container}>
+        <View style={[styles.container, inputContainerHeight]}>
           <Animated.Text
             onPress={handleFocus}
             style={[

@@ -197,8 +197,12 @@ const xml = `
     </svg>
 `;
 
-export default () => (
+interface Props {
+  width?: number;
+  height?: number;
+}
+export default ({width, height}: Props) => (
   <View>
-    <SvgXml xml={xml} />
+    <SvgXml xml={xml} width={width || 230} height={height || 520} />
   </View>
 );

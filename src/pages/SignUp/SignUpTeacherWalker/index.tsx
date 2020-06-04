@@ -19,6 +19,7 @@ interface Props {
   bottomBarContent?: {leftButton: string; rightButton: string};
   onLeftButtonFunction?: () => void;
   onRightButtonFunction?: () => void;
+  transparentFooter?: boolean;
 }
 
 const SignUpTeacherWalker: React.FC<Props> = props => {
@@ -31,6 +32,7 @@ const SignUpTeacherWalker: React.FC<Props> = props => {
     bottomBarContent = {rightButton: 'none', leftButton: 'none'},
     onLeftButtonFunction,
     onRightButtonFunction,
+    transparentFooter,
   } = props;
   return (
     <ImageBackground
@@ -42,39 +44,43 @@ const SignUpTeacherWalker: React.FC<Props> = props => {
             <LogoIcon width={130} height={60} />
           </View>
           <View style={styles.childrenWrapper}>{children}</View>
-          {bottomBarIncluded && (
-            <View style={styles.bottomNavigationWrapper}>
-              <TouchableWithoutFeedback onPress={navigatorFunction}>
-                <View
-                  style={{
-                    ...styles.bottomNavigationTextWrapper,
-                    justifyContent: multiBottomBarContent
-                      ? 'space-between'
-                      : 'center',
-                  }}>
-                  {multiBottomBarContent ? (
-                    <React.Fragment>
-                      <TouchableWithoutFeedback onPress={onLeftButtonFunction}>
-                        <Text style={styles.bottomNavigationText}>
-                          {bottomBarContent.leftButton}
-                        </Text>
-                      </TouchableWithoutFeedback>
-                      <TouchableWithoutFeedback onPress={onRightButtonFunction}>
-                        <Text style={styles.bottomNavigationText}>
-                          {bottomBarContent.rightButton}
-                        </Text>
-                      </TouchableWithoutFeedback>
-                    </React.Fragment>
-                  ) : (
-                    <Text style={styles.bottomNavigationText}>
-                      {bottomBarText}
-                    </Text>
-                  )}
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
-          )}
         </ScrollView>
+        {bottomBarIncluded && (
+          <View
+            style={[
+              styles.bottomNavigationWrapper,
+              transparentFooter && styles.transparentFooter,
+            ]}>
+            <TouchableWithoutFeedback onPress={navigatorFunction}>
+              <View
+                style={{
+                  ...styles.bottomNavigationTextWrapper,
+                  justifyContent: multiBottomBarContent
+                    ? 'space-between'
+                    : 'center',
+                }}>
+                {multiBottomBarContent ? (
+                  <React.Fragment>
+                    <TouchableWithoutFeedback onPress={onLeftButtonFunction}>
+                      <Text style={styles.bottomNavigationText}>
+                        {bottomBarContent.leftButton}
+                      </Text>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={onRightButtonFunction}>
+                      <Text style={styles.bottomNavigationText}>
+                        {bottomBarContent.rightButton}
+                      </Text>
+                    </TouchableWithoutFeedback>
+                  </React.Fragment>
+                ) : (
+                  <Text style={styles.bottomNavigationText}>
+                    {bottomBarText}
+                  </Text>
+                )}
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        )}
       </View>
     </ImageBackground>
   );

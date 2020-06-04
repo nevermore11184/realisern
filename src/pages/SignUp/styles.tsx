@@ -15,11 +15,10 @@ export const styles = StyleSheet.create({
   },
   iconWrapper: {
     alignItems: 'center',
-    height: '25%',
-    marginBottom: '35%',
+    marginBottom: '15%',
   },
   innerWrapper: {
-    paddingTop: '35%',
+    paddingTop: '20%',
   },
   iconText: {
     color: 'white',
