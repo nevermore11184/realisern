@@ -9,17 +9,13 @@ export const styles = StyleSheet.create({
   },
   sliderWrapper: {
     marginTop: '6%',
-    width: '100%',
   },
   iconWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  progressBarWrapper: {
-    width: '100%',
-  },
+  progressBarWrapper: {},
   sliderTitleWrapper: {
-    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -29,7 +25,6 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
   },
   contentWrapper: {
-    width: '100%',
     marginTop: '7%',
     marginBottom: '14%',
   },

@@ -24,8 +24,12 @@ export const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: 'bold',
   },
-  opportunities: {
+  opportunitiesIOS: {
     marginTop: '3%',
+  },
+  opportunitiesAndroid: {
+    marginTop: '3%',
+    paddingLeft: '3%',
   },
   opportunityWrapper: {
     flexDirection: 'row',

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Platform} from 'react-native';
 import OvalIcon from '../../../../../../assets/icons/OvalIcon';
 import SignUpTeacherWalker from '../../../../SignUpTeacherWalker';
 import i18n from '../../../../../../config/locales/customisation';
@@ -38,7 +38,12 @@ const FinishScreen = () => {
           <Text style={styles.thanksText}>
             {i18n.t('signUpFlow.teacherFlow.finishScreen.thanks')}
           </Text>
-          <View style={styles.opportunities}>
+          <View
+            style={[
+              Platform.OS === 'android'
+                ? styles.opportunitiesAndroid
+                : styles.opportunitiesIOS,
+            ]}>
             {opportunitiesArray.map(opportunity => {
               return (
                 <View style={styles.opportunityWrapper}>
