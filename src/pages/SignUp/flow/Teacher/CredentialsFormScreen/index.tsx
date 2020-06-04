@@ -55,7 +55,8 @@ const CredentialsFormScreen: React.FC<Props> = props => {
               <FloatingTextInputField
                 labelSize={styles.labelStyles}
                 inputContainerHeight={styles.inputContainerHeight}
-                untouchedTitleSpacing={6}
+                untouchedTitleSpacing={-1}
+                touchedTitleSpacing={4}
                 value={localState[input.value]}
                 title={input.title}
                 inputStyles={styles.input}
@@ -70,7 +71,7 @@ const CredentialsFormScreen: React.FC<Props> = props => {
                 <StandardButton
                   additionalWrapperStyles={{
                     ...styles.standardButtonWrapper,
-                    marginTop: Platform.OS === 'ios' ? '8%' : '9%',
+                    marginTop: Platform.OS === 'ios' ? '4%' : '5%',
                   }}
                   additionalStyles={{...styles.standardButton}}
                   onPress={() => 'test'}

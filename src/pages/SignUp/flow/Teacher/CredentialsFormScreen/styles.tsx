@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   input: {
     backgroundColor: loginColors.basicTransparentWhite,
     borderRadius: 3,
-    height: 55,
+    height: 45,
     padding: 8,
     paddingTop: 24,
     paddingLeft: 16,
@@ -24,20 +24,20 @@ export const styles = StyleSheet.create({
     paddingTop: '10%',
   },
   inputWrapper: {
-    marginBottom: 16,
+    marginBottom: 6,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
   },
   standardButton: {
-    height: 56,
+    height: 45,
   },
   standardButtonWrapper: {
     width: '30%',
   },
   labelStyles: {
-    fontSize: 19,
+    fontSize: 16,
   },
   inputContainerHeight: {
     height: 40,

@@ -82,7 +82,7 @@ export const styles = StyleSheet.create({
     width: '47%',
   },
   labelStyles: {
-    fontSize: 19,
+    fontSize: 16,
   },
   inputContainerHeight: {
     height: 30,
