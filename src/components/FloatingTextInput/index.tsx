@@ -29,6 +29,7 @@ interface FloatingTextInput {
   labelSize?: {fontSize: number};
   inputContainerHeight?: {height: number};
   untouchedTitleSpacing?: number;
+  touchedTitleSpacing?: number;
 }
 
 const FloatingTextInputField = (props: FloatingTextInput) => {
@@ -46,6 +47,7 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
     labelSize,
     inputContainerHeight,
     untouchedTitleSpacing,
+    touchedTitleSpacing,
   } = props;
   const [position] = useState(new Animated.Value(value ? 1 : 0));
   const [isFieldActive, setFieldActive] = useState(false);
@@ -77,7 +79,11 @@ const FloatingTextInputField = (props: FloatingTextInput) => {
       inputRange: [0, 1],
       outputRange: [14, 0],
     }),
-    ...animatedLabelStyles(isFieldActive, untouchedTitleSpacing),
+    ...animatedLabelStyles(
+      isFieldActive,
+      untouchedTitleSpacing,
+      touchedTitleSpacing,
+    ),
   });
 
   const displayValidationIcon = isFieldActive && validationIconIncluded;

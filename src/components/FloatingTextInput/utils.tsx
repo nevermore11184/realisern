@@ -3,11 +3,14 @@ import {loginColors} from '../../pages/Login/constants';
 export const animatedLabelStyles = (
   isFieldActive: boolean,
   untouchedTitleSpacing: number | undefined,
+  touchedTitleSpacing: number | undefined,
 ) => ({
   // returns styles
   fontSize: isFieldActive ? 11.5 : 15,
   color: isFieldActive ? loginColors.shiftedLabel : loginColors.white,
-  marginTop: isFieldActive ? 10 : untouchedTitleSpacing || 9,
+  marginTop: isFieldActive
+    ? touchedTitleSpacing || 10
+    : untouchedTitleSpacing || 9,
   marginBottom: 30,
 });
 

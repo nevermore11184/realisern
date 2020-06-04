@@ -74,7 +74,11 @@ const AddressFormScreen: React.FC<Props> = ({navigation}) => {
           </View>
           <View style={styles.postCodeWrapper}>
             <FloatingTextInputField
+              labelSize={styles.labelStyles}
+              inputContainerHeight={styles.inputContainerHeight}
               value={localState.postCode}
+              untouchedTitleSpacing={-1}
+              touchedTitleSpacing={4}
               title={'postcode'}
               inputStyles={styles.input}
               wrapperStyles={styles.postCodeInputWrapper}
@@ -105,18 +109,26 @@ const AddressFormScreen: React.FC<Props> = ({navigation}) => {
         </View>
         <View style={styles.addressWrapper}>
           <FloatingTextInputField
+            labelSize={styles.labelStyles}
+            inputContainerHeight={styles.inputContainerHeight}
             value={localState.firstAddressLine}
             title={'address line 1'}
             inputStyles={styles.input}
+            untouchedTitleSpacing={-1}
+            touchedTitleSpacing={4}
             wrapperStyles={styles.addressInputWrapper}
             onChangeText={onSetLocalState('firstAddressLine')}
             name={'firstAddressLine'}
             label={'Address line 1'}
           />
           <FloatingTextInputField
+            labelSize={styles.labelStyles}
+            inputContainerHeight={styles.inputContainerHeight}
             value={localState.secondAddressLine}
             title={'address line 2'}
             inputStyles={styles.input}
+            untouchedTitleSpacing={-1}
+            touchedTitleSpacing={4}
             wrapperStyles={styles.addressInputWrapper}
             onChangeText={onSetLocalState('secondAddressLine')}
             name={'secondAddressLine'}
@@ -124,6 +136,10 @@ const AddressFormScreen: React.FC<Props> = ({navigation}) => {
           />
           <View style={styles.extraInputsWrapper}>
             <FloatingTextInputField
+              labelSize={styles.labelStyles}
+              inputContainerHeight={styles.inputContainerHeight}
+              untouchedTitleSpacing={-1}
+              touchedTitleSpacing={4}
               value={localState.city}
               title={'city'}
               inputStyles={styles.input}
@@ -133,6 +149,10 @@ const AddressFormScreen: React.FC<Props> = ({navigation}) => {
               label={'City'}
             />
             <FloatingTextInputField
+              labelSize={styles.labelStyles}
+              inputContainerHeight={styles.inputContainerHeight}
+              untouchedTitleSpacing={-1}
+              touchedTitleSpacing={4}
               value={localState.country}
               title={'country'}
               inputStyles={styles.input}

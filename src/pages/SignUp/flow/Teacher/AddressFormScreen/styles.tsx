@@ -3,7 +3,7 @@ import {loginColors} from '../../../../Login/constants';
 
 export const styles = StyleSheet.create({
   addressFormContainer: {
-    paddingTop: '10%',
+    paddingTop: '4%',
     paddingLeft: '5%',
     paddingRight: '5%',
   },
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   pageTitle: {
-    fontSize: 23,
+    fontSize: 20,
     color: loginColors.white,
     fontWeight: 'bold',
     marginTop: '10%',
@@ -27,15 +27,16 @@ export const styles = StyleSheet.create({
   radioButtonsWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '10%',
-    marginBottom: '10%',
+    marginTop: '5%',
+    marginBottom: '6%',
   },
   input: {
     backgroundColor: loginColors.basicTransparentWhite,
     borderRadius: 3,
-    height: 65,
-    padding: 16,
-    paddingTop: 32,
+    height: 45,
+    padding: 8,
+    paddingLeft: 16,
+    paddingTop: 24,
     width: '100%',
   },
   postCodeInputWrapper: {
@@ -54,12 +55,13 @@ export const styles = StyleSheet.create({
   },
   selectAuxiliaryText: {
     color: loginColors.white,
-    fontSize: 20,
+    fontSize: 17,
     alignSelf: 'flex-start',
   },
   postCodeWrapper: {
     width: '100%',
     flexDirection: 'row',
+    marginBottom: '3%',
   },
   selectWrapper: {
     marginBottom: '6%',
@@ -67,16 +69,22 @@ export const styles = StyleSheet.create({
   },
   selectInputIOS: {
     backgroundColor: loginColors.basicTransparentWhite,
-    height: 50,
+    height: 40,
     borderRadius: 3,
     paddingLeft: '4%',
   },
   selectInputAndroid: {
     backgroundColor: loginColors.basicTransparentWhite,
-    height: 50,
+    height: 40,
     borderRadius: 6,
   },
   additionalInputWrapper: {
-    width: '45%',
+    width: '47%',
+  },
+  labelStyles: {
+    fontSize: 19,
+  },
+  inputContainerHeight: {
+    height: 30,
   },
 });
